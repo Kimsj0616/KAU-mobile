@@ -21,13 +21,10 @@ class ScanQR : AppCompatActivity()
 
         val scanner = IntentIntegrator(this)
         scanner.setOrientationLocked(false)
+        scanner.setBeepEnabled(false)
 
 
         scanner.initiateScan()
-
-
-
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -37,7 +34,8 @@ class ScanQR : AppCompatActivity()
                 if (result.contents == null) {
                     Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show()
                 } else {
-                    val intent: Intent = Intent(Intent.ACTION_VIEW, Uri.parse(result.contents))
+                    val intent: Intent = Intent(this@ScanQR, Order::class.java)
+                    intent.putExtra("Table_Number", result.contents)
                     startActivity(intent)
                 }
             } else {
@@ -45,5 +43,4 @@ class ScanQR : AppCompatActivity()
             }
         }
     }
-
 }

@@ -27,10 +27,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Toast.makeText(this@MainActivity,"asd",Toast.LENGTH_LONG).show()
-        ref.setValue("김세종")
-        ref.child("name").setValue("김세종")
-
 
         createQRBtn = findViewById(R.id.createQR)
         scanQRBtn = findViewById(R.id.scanQR)
@@ -40,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
                 val intent : Intent = Intent(this@MainActivity,CreateQR::class.java)
 
-                startActivity(intent!!)
+                startActivity(intent)
             }
     })
 
