@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "21493737244",
+    "firebase_url": "https://monsterrat-ec078.firebaseio.com",
+    "project_id": "monsterrat-ec078",
+    "storage_bucket": "monsterrat-ec078.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21493737244:android:c09852559d20ec31617cd9",
+        "android_client_info": {
+          "package_name": "com.kimsj.Termproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "21493737244-ecphll2hjcrq1opbk0kved28k0h6pv41.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kimsj.Termproject",
+            "certificate_hash": "ef73813a510a4ba080678a09ab37824e62709547"
+          }
+        },
+        {
+          "client_id": "21493737244-adgeffssfe3k3cm8r63938no1b5tgmn4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCy4SeR_8QwmAxGz6Jn8Eo8o3v0bhmpxsk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "21493737244-adgeffssfe3k3cm8r63938no1b5tgmn4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
