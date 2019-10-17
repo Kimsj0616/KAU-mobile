@@ -34,9 +34,9 @@ class ScanQR : AppCompatActivity()
                 if (result.contents == null) {
                     Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show()
                 } else {
-                    val intent: Intent = Intent(this@ScanQR, Order::class.java)
-                    intent.putExtra("Table_Number", result.contents)
-                    startActivity(intent)
+                    val nextintent: Intent = Intent(this@ScanQR, Order::class.java)
+                    nextintent.putExtra("Table_Number", result.contents.toInt())
+                    startActivity(nextintent)
                 }
             } else {
                 super.onActivityResult(requestCode, resultCode, data)

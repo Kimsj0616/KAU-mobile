@@ -14,14 +14,13 @@ class Order : AppCompatActivity()
 
         setContentView(R.layout.activity_order)
 
-        val TableNo : Int = getIntent().getIntExtra("Table_Number", 1)
-        println("Table No == ${TableNo}")
+        var tableNumber : TextView = findViewById(R.id.TableNo)
 
-        var TableNumber : TextView = findViewById(R.id.TableNo)
-
-        TableNumber.setText(TableNo.toString())
-
-
+        if (intent.hasExtra("Table_Number")) {
+            val tableNo = intent.getIntExtra("Table_Number", 1)
+            println("table : ${tableNo}")
+            tableNumber.text = tableNo.toString()
+        }
 
         OrderButton = findViewById(R.id.order_button)
     }
