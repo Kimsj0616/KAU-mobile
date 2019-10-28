@@ -7,6 +7,61 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/minusmenu4"
+        android:layout_width="47dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="50dp"
+        android:text="-"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/plusmenu4"
+        app:layout_constraintStart_toEndOf="@+id/plusmenu4"
+        app:layout_constraintTop_toTopOf="@+id/plusmenu4" />
+
+    <Button
+        android:id="@+id/minusmenu5"
+        android:layout_width="47dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="50dp"
+        android:text="-"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/plusmenu5"
+        app:layout_constraintStart_toEndOf="@+id/plusmenu5"
+        app:layout_constraintTop_toTopOf="@+id/plusmenu5" />
+
+    <Button
+        android:id="@+id/plusmenu5"
+        android:layout_width="47dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="100dp"
+        android:text="+"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/menu5"
+        app:layout_constraintStart_toEndOf="@+id/menu5"
+        app:layout_constraintTop_toTopOf="@+id/menu5" />
+
+    <Button
+        android:id="@+id/plusmenu4"
+        android:layout_width="47dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="100dp"
+        android:text="+"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/menu4"
+        app:layout_constraintStart_toEndOf="@+id/menu4"
+        app:layout_constraintTop_toTopOf="@+id/menu4" />
+
+    <Button
+        android:id="@+id/plusmenu3"
+        android:layout_width="47dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="100dp"
+        android:text="+"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/menu3"
+        app:layout_constraintStart_toEndOf="@+id/menu3"
+        app:layout_constraintTop_toTopOf="@+id/menu3" />
+
+    <Button
         android:id="@+id/order_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -21,10 +76,114 @@
         android:id="@+id/TableNo"
         android:layout_width="121dp"
         android:layout_height="47dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="96dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/menu1"
+        android:layout_width="60dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="240dp"
+        android:text="돈까스"
+        app:layout_constraintEnd_toEndOf="@+id/TableNo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/menu2"
+        android:layout_width="83dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="15dp"
+        android:text="치즈돈까스"
+        app:layout_constraintEnd_toEndOf="@+id/menu1"
+        app:layout_constraintTop_toBottomOf="@+id/menu1" />
+
+    <TextView
+        android:id="@+id/menu3"
+        android:layout_width="79dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="18dp"
+        android:text="고구마 치즈 돈까스"
+        app:layout_constraintEnd_toEndOf="@+id/menu2"
+        app:layout_constraintTop_toBottomOf="@+id/menu2" />
+
+    <TextView
+        android:id="@+id/menu5"
+        android:layout_width="71dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="19dp"
+        android:text="콜라"
+        app:layout_constraintEnd_toEndOf="@+id/menu4"
+        app:layout_constraintTop_toBottomOf="@+id/menu4" />
+
+    <TextView
+        android:id="@+id/menu4"
+        android:layout_width="80dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="13dp"
+        android:text="스파게티"
+        app:layout_constraintEnd_toEndOf="@+id/menu3"
+        app:layout_constraintTop_toBottomOf="@+id/menu3" />
+
+    <Button
+        android:id="@+id/plusmenu1"
+        android:layout_width="47dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="100dp"
+        android:text="+"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/menu1"
+        app:layout_constraintStart_toEndOf="@+id/menu1"
+        app:layout_constraintTop_toTopOf="@+id/menu1" />
+
+    <Button
+        android:id="@+id/minusmenu1"
+        android:layout_width="47dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="50dp"
+        android:text="-"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/menu1"
+        app:layout_constraintStart_toEndOf="@+id/plusmenu1"
+        app:layout_constraintTop_toTopOf="@+id/menu1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/minusmenu3"
+        android:layout_width="47dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="50dp"
+        android:text="-"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/plusmenu3"
+        app:layout_constraintStart_toEndOf="@+id/plusmenu3"
+        app:layout_constraintTop_toTopOf="@+id/plusmenu3" />
+
+    <Button
+        android:id="@+id/minusmenu2"
+        android:layout_width="47dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="50dp"
+        android:text="-"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/plusmenu2"
+        app:layout_constraintStart_toEndOf="@+id/plusmenu2"
+        app:layout_constraintTop_toTopOf="@+id/plusmenu2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/plusmenu2"
+        android:layout_width="47dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="100dp"
+        android:text="+"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/menu2"
+        app:layout_constraintStart_toEndOf="@+id/menu2"
+        app:layout_constraintTop_toTopOf="@+id/menu2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

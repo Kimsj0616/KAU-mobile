@@ -22,6 +22,8 @@ class Order : AppCompatActivity()
             tableNumber.text = tableNo.toString()
         }
 
+
         OrderButton = findViewById(R.id.order_button)
+
     }
 }
