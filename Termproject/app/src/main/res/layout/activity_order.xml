@@ -65,12 +65,13 @@
         android:id="@+id/order_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="111dp"
+        android:layout_marginBottom="110dp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalprice" />
 
     <TextView
         android:id="@+id/TableNo"
@@ -85,11 +86,12 @@
 
     <TextView
         android:id="@+id/menu1"
-        android:layout_width="60dp"
+        android:layout_width="0dp"
         android:layout_height="28dp"
+        android:layout_marginStart="46dp"
         android:layout_marginTop="240dp"
         android:text="돈까스"
-        app:layout_constraintEnd_toEndOf="@+id/TableNo"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -99,6 +101,7 @@
         android:layout_height="27dp"
         android:layout_marginTop="15dp"
         android:text="치즈돈까스"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/menu1"
         app:layout_constraintTop_toBottomOf="@+id/menu1" />
 
@@ -108,6 +111,7 @@
         android:layout_height="56dp"
         android:layout_marginTop="18dp"
         android:text="고구마 치즈 돈까스"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/menu2"
         app:layout_constraintTop_toBottomOf="@+id/menu2" />
 
@@ -117,6 +121,7 @@
         android:layout_height="31dp"
         android:layout_marginTop="19dp"
         android:text="콜라"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/menu4"
         app:layout_constraintTop_toBottomOf="@+id/menu4" />
 
@@ -126,6 +131,7 @@
         android:layout_height="32dp"
         android:layout_marginTop="13dp"
         android:text="스파게티"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/menu3"
         app:layout_constraintTop_toBottomOf="@+id/menu3" />
 
@@ -185,5 +191,142 @@
         app:layout_constraintBottom_toBottomOf="@+id/menu2"
         app:layout_constraintStart_toEndOf="@+id/menu2"
         app:layout_constraintTop_toTopOf="@+id/menu2" />
+
+    <TextView
+        android:id="@+id/menu1qtt"
+        android:layout_width="49dp"
+        android:layout_height="18dp"
+        android:text="0"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/plusmenu1"
+        app:layout_constraintEnd_toStartOf="@+id/minusmenu1"
+        app:layout_constraintStart_toEndOf="@+id/plusmenu1"
+        app:layout_constraintTop_toTopOf="@+id/plusmenu1" />
+
+    <TextView
+        android:id="@+id/menu2qtt"
+        android:layout_width="49dp"
+        android:layout_height="18dp"
+        android:text="0"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/plusmenu2"
+        app:layout_constraintEnd_toStartOf="@+id/minusmenu1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/plusmenu1"
+        app:layout_constraintTop_toTopOf="@+id/plusmenu2" />
+
+    <TextView
+        android:id="@+id/menu3qtt"
+        android:layout_width="49dp"
+        android:layout_height="18dp"
+        android:text="0"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/plusmenu3"
+        app:layout_constraintEnd_toStartOf="@+id/minusmenu1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/plusmenu1"
+        app:layout_constraintTop_toTopOf="@+id/plusmenu3" />
+
+    <TextView
+        android:id="@+id/menu4qtt"
+        android:layout_width="49dp"
+        android:layout_height="18dp"
+        android:text="0"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/plusmenu4"
+        app:layout_constraintEnd_toStartOf="@+id/minusmenu1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/plusmenu1"
+        app:layout_constraintTop_toTopOf="@+id/plusmenu4" />
+
+    <TextView
+        android:id="@+id/menu5qtt"
+        android:layout_width="49dp"
+        android:layout_height="18dp"
+        android:text="0"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/plusmenu5"
+        app:layout_constraintEnd_toStartOf="@+id/minusmenu1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/plusmenu1"
+        app:layout_constraintTop_toTopOf="@+id/plusmenu5" />
+
+    <TextView
+        android:id="@+id/menu1price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="7000"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/menu1"
+        app:layout_constraintEnd_toStartOf="@+id/plusmenu1"
+        app:layout_constraintStart_toEndOf="@+id/menu1"
+        app:layout_constraintTop_toTopOf="@+id/menu1" />
+
+    <TextView
+        android:id="@+id/menu2price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="8000"
+        app:layout_constraintBottom_toBottomOf="@+id/menu2"
+        app:layout_constraintEnd_toStartOf="@+id/plusmenu2"
+        app:layout_constraintStart_toEndOf="@+id/menu2"
+        app:layout_constraintTop_toTopOf="@+id/menu2" />
+
+    <TextView
+        android:id="@+id/menu3price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="9000"
+        app:layout_constraintBottom_toBottomOf="@+id/menu3"
+        app:layout_constraintEnd_toStartOf="@+id/plusmenu3"
+        app:layout_constraintStart_toEndOf="@+id/menu3"
+        app:layout_constraintTop_toTopOf="@+id/menu3" />
+
+    <TextView
+        android:id="@+id/menu4price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="7000"
+        app:layout_constraintBottom_toBottomOf="@+id/menu4"
+        app:layout_constraintEnd_toStartOf="@+id/plusmenu4"
+        app:layout_constraintStart_toEndOf="@+id/menu4"
+        app:layout_constraintTop_toTopOf="@+id/menu4" />
+
+    <TextView
+        android:id="@+id/menu5price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2000"
+        app:layout_constraintBottom_toBottomOf="@+id/menu5"
+        app:layout_constraintEnd_toStartOf="@+id/plusmenu5"
+        app:layout_constraintStart_toEndOf="@+id/menu5"
+        app:layout_constraintTop_toTopOf="@+id/menu5" />
+
+    <TextView
+        android:id="@+id/totalprice"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="510dp"
+        android:layout_marginEnd="82dp"
+        android:layout_marginBottom="17dp"
+        android:text="0"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/order_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginEnd="30dp"
+        android:text="총액:"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/totalprice"
+        app:layout_constraintEnd_toStartOf="@+id/totalprice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/totalprice" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
