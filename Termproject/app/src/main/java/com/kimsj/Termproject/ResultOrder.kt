@@ -11,8 +11,8 @@ import com.google.firebase.database.FirebaseDatabase
 
 class ResultOrder : AppCompatActivity(){
 
-    var firebasedb : FirebaseDatabase = FirebaseDatabase.getInstance()
-    var ref : DatabaseReference = firebasedb.reference
+    private var firebasedb : FirebaseDatabase = FirebaseDatabase.getInstance()
+    private var ref : DatabaseReference = firebasedb.reference
 
     var tablenumber :Int? = null
     var menu1 :String? = null
@@ -50,7 +50,8 @@ class ResultOrder : AppCompatActivity(){
         }
 
 
-        var order = ResultOrder()
+
+        val order = OrderDB(tablenumber,menu1,menu2,menu3,menu4,menu5)
         ref.setValue(order)
 
     }
