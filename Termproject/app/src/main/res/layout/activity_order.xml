@@ -8,8 +8,8 @@
 
     <Button
         android:id="@+id/minusmenu4"
-        android:layout_width="47dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="50dp"
         android:text="-"
         android:textSize="10sp"
@@ -19,8 +19,8 @@
 
     <Button
         android:id="@+id/minusmenu5"
-        android:layout_width="47dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="50dp"
         android:text="-"
         android:textSize="10sp"
@@ -30,8 +30,8 @@
 
     <Button
         android:id="@+id/plusmenu5"
-        android:layout_width="47dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="100dp"
         android:text="+"
         android:textSize="10sp"
@@ -41,8 +41,8 @@
 
     <Button
         android:id="@+id/plusmenu4"
-        android:layout_width="47dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="100dp"
         android:text="+"
         android:textSize="10sp"
@@ -52,8 +52,8 @@
 
     <Button
         android:id="@+id/plusmenu3"
-        android:layout_width="47dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="100dp"
         android:text="+"
         android:textSize="10sp"
@@ -65,8 +65,8 @@
         android:id="@+id/order_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="110dp"
-        android:text="Button"
+        android:layout_marginBottom="56dp"
+        android:text="주문하기"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -75,13 +75,12 @@
 
     <TextView
         android:id="@+id/TableNo"
-        android:layout_width="121dp"
-        android:layout_height="47dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginTop="96dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="40dp"
+        app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -99,7 +98,7 @@
         android:id="@+id/menu2"
         android:layout_width="83dp"
         android:layout_height="27dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="40dp"
         android:text="치즈돈까스"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/menu1"
@@ -109,7 +108,7 @@
         android:id="@+id/menu3"
         android:layout_width="79dp"
         android:layout_height="56dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="40dp"
         android:text="고구마 치즈 돈까스"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/menu2"
@@ -119,7 +118,7 @@
         android:id="@+id/menu5"
         android:layout_width="71dp"
         android:layout_height="31dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="40dp"
         android:text="콜라"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/menu4"
@@ -129,7 +128,7 @@
         android:id="@+id/menu4"
         android:layout_width="80dp"
         android:layout_height="32dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="40dp"
         android:text="스파게티"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/menu3"
@@ -137,8 +136,8 @@
 
     <Button
         android:id="@+id/plusmenu1"
-        android:layout_width="47dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="100dp"
         android:text="+"
         android:textSize="10sp"
@@ -148,20 +147,22 @@
 
     <Button
         android:id="@+id/minusmenu1"
-        android:layout_width="47dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="50dp"
+        android:layout_marginTop="234dp"
+        android:layout_marginBottom="315dp"
         android:text="-"
         android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/menu1"
+        app:layout_constraintBottom_toTopOf="@+id/totalprice"
         app:layout_constraintStart_toEndOf="@+id/plusmenu1"
-        app:layout_constraintTop_toTopOf="@+id/menu1"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/minusmenu3"
-        android:layout_width="47dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="50dp"
         android:text="-"
         android:textSize="10sp"
@@ -171,8 +172,8 @@
 
     <Button
         android:id="@+id/minusmenu2"
-        android:layout_width="47dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="50dp"
         android:text="-"
         android:textSize="10sp"
@@ -183,8 +184,8 @@
 
     <Button
         android:id="@+id/plusmenu2"
-        android:layout_width="47dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="100dp"
         android:text="+"
         android:textSize="10sp"
@@ -304,29 +305,34 @@
 
     <TextView
         android:id="@+id/totalprice"
-        android:layout_width="0dp"
+        android:layout_width="97dp"
         android:layout_height="0dp"
-        android:layout_marginTop="510dp"
-        android:layout_marginEnd="82dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginBottom="102dp"
         android:text="0"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/order_button"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/minusmenu1" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_marginStart="105dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="204dp"
         android:text="총액:"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@+id/totalprice"
-        app:layout_constraintEnd_toStartOf="@+id/totalprice"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/totalprice" />
+        app:layout_constraintBottom_toTopOf="@+id/order_button"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="30dp"
+        android:text="Table"
+        android:textAlignment="center"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/TableNo"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

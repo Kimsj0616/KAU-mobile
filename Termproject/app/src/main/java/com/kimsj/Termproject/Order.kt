@@ -1,5 +1,6 @@
 package com.kimsj.Termproject
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
@@ -124,7 +125,16 @@ class Order : AppCompatActivity()
         }
 
         order_button.setOnClickListener {
+            val orderIntent = Intent(this@Order, ResultOrder::class.java)
 
+            orderIntent.putExtra("qttmenu1", qttmenu1)
+            orderIntent.putExtra("qttmenu2", qttmenu2)
+            orderIntent.putExtra("qttmenu3", qttmenu3)
+            orderIntent.putExtra("qttmenu4", qttmenu4)
+            orderIntent.putExtra("qttmenu5", qttmenu5)
+            orderIntent.putExtra("total_price", total_price)
+
+            startActivity(orderIntent)
         }
     }
 
