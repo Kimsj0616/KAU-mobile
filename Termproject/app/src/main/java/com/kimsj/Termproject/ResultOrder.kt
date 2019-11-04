@@ -15,11 +15,11 @@ class ResultOrder : AppCompatActivity(){
     private var ref : DatabaseReference = firebasedb.reference
 
     var tablenumber :Int? = null
-    var menu1 :String? = null
-    var menu2 :String? = null
-    var menu3 :String? = null
-    var menu4 :String? = null
-    var menu5 :String? = null
+    var menu1 :String? = "돈까스"
+    var menu2 :String? = "치즈돈까스"
+    var menu3 :String? = "고구마치즈돈까스"
+    var menu4 :String? = "스파게티"
+    var menu5 :String? = "콜라"
 
 
 
@@ -32,7 +32,7 @@ class ResultOrder : AppCompatActivity(){
         if (intent.hasExtra("Table_Number")) {
             tablenumber = intent.getIntExtra("Table_Number", 1)
         }
-        if (intent.hasExtra("qttmenu1")) {
+        /*if (intent.hasExtra("qttmenu1")) {
             menu1 = intent.getStringExtra("qttmenu1")
         }
         if (intent.hasExtra("qttmenu2")) {
@@ -47,7 +47,7 @@ class ResultOrder : AppCompatActivity(){
         }
         if (intent.hasExtra("qttmenu5")) {
             menu5 = intent.getStringExtra("qttmenu5")
-        }
+        }*/
 
 
 

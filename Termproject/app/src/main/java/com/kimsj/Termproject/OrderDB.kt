@@ -13,11 +13,5 @@ data class OrderDB(var tablenumber: Int?,
                    var menu4:String?,
                    var menu5:String?) : Parcelable {
 
-    var tableno = tablenumber
-    var menu11 = menu1
-    var menu22 = menu2
-    var menu33 = menu3
-    var menu44 = menu4
-    var menu55 = menu5
 
 }
