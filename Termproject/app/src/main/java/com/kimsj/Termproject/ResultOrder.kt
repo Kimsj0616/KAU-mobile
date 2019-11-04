@@ -11,9 +11,10 @@ import com.google.firebase.database.FirebaseDatabase
 
 class ResultOrder : AppCompatActivity(){
 
-    private var firebasedb : FirebaseDatabase = FirebaseDatabase.getInstance()
-    private  var ref : DatabaseReference = firebasedb.reference
+    var firebasedb : FirebaseDatabase = FirebaseDatabase.getInstance()
+    var ref : DatabaseReference = firebasedb.reference
 
+    var tablenumber :Int? = null
     var menu1 :String? = null
     var menu2 :String? = null
     var menu3 :String? = null
@@ -21,21 +22,35 @@ class ResultOrder : AppCompatActivity(){
     var menu5 :String? = null
 
 
-    class orderData{
-        val tablenumber :Int? = null
-        val menu1 :String? = null
-        val menu2 :String? = null
-        val menu3 :String? = null
-        val menu4 :String? = null
-        val menu5 :String? = null
-
-    }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var order = orderData()
+
+        setContentView(R.layout.activity_resultorder)
+
+        if (intent.hasExtra("Table_Number")) {
+            tablenumber = intent.getIntExtra("Table_Number", 1)
+        }
+        if (intent.hasExtra("qttmenu1")) {
+            menu1 = intent.getStringExtra("qttmenu1")
+        }
+        if (intent.hasExtra("qttmenu2")) {
+            menu2 = intent.getStringExtra("qttmenu2")
+        }
+        if (intent.hasExtra("qttmenu3")) {
+            menu3 = intent.getStringExtra("qttmenu3")
+        }
+
+        if (intent.hasExtra("qttmenu4")) {
+            menu4 = intent.getStringExtra("qttmenu4")
+        }
+        if (intent.hasExtra("qttmenu5")) {
+            menu5 = intent.getStringExtra("qttmenu5")
+        }
+
+
+        var order = ResultOrder()
         ref.setValue(order)
 
     }

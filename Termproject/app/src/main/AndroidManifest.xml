@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:hardwareAccelerated="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
+        <activity android:name = "com.kimsj.Termproject.ResultOrder"/>
         <activity android:name = "com.kimsj.Termproject.Order"/>
         <activity android:name="com.kimsj.Termproject.MainActivity">
             <intent-filter>

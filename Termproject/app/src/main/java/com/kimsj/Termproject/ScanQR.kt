@@ -40,7 +40,7 @@ class ScanQR : AppCompatActivity()
                 }
             } else {
                 super.onActivityResult(requestCode, resultCode, data)
-            }
+           }
         }
     }
 }
