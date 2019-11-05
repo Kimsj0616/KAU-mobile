@@ -6,12 +6,17 @@ import kotlinx.android.parcel.Parcelize
 
 
 @Parcelize
-data class OrderDB(var tablenumber: Int?,
-                   var menu1:String?,
-                   var menu2:String?,
-                   var menu3:String?,
-                   var menu4:String?,
-                   var menu5:String?) : Parcelable {
+class OrderDB(var tablenumber: Int?,
+                   var qttmenu1:Int?,
+                   var qttmenu2:Int?,
+                   var qttmenu3:Int?,
+                   var qttmenu4:Int?,
+                   var qttmenu5:Int?) : Parcelable {
 
-
+    val map1 = mapOf("Table number" to tablenumber,
+        "돈까스" to qttmenu1,
+        "치즈돈까스" to qttmenu2,
+        "고구마치즈돈까스" to qttmenu3,
+        "스파게티" to qttmenu4,
+        "콜라" to qttmenu5)
 }

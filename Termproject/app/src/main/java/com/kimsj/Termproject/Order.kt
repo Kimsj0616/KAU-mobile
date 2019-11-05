@@ -128,13 +128,13 @@ class Order : AppCompatActivity()
         order_button.setOnClickListener {
             val orderIntent = Intent(this@Order, ResultOrder::class.java)
 
-            orderIntent.putExtra("tableNo", tableNo)
-            orderIntent.putExtra("qttmenu1", qttmenu1)
-            orderIntent.putExtra("qttmenu2", qttmenu2)
-            orderIntent.putExtra("qttmenu3", qttmenu3)
-            orderIntent.putExtra("qttmenu4", qttmenu4)
-            orderIntent.putExtra("qttmenu5", qttmenu5)
-            orderIntent.putExtra("total_price", total_price)
+            orderIntent.putExtra("tableNo", tableNo!!.toInt())
+            orderIntent.putExtra("qttmenu1", qttmenu1.toInt())
+            orderIntent.putExtra("qttmenu2", qttmenu2.toInt())
+            orderIntent.putExtra("qttmenu3", qttmenu3.toInt())
+            orderIntent.putExtra("qttmenu4", qttmenu4.toInt())
+            orderIntent.putExtra("qttmenu5", qttmenu5.toInt())
+            orderIntent.putExtra("total_price", total_price.toInt())
 
             startActivity(orderIntent)
         }
