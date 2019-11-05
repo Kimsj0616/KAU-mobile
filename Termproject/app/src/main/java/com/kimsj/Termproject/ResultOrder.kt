@@ -29,8 +29,8 @@ class ResultOrder : AppCompatActivity(){
 
         setContentView(R.layout.activity_resultorder)
 
-        if (intent.hasExtra("Table_Number")) {
-            tablenumber = intent.getIntExtra("Table_Number", 0)
+        if (intent.hasExtra("tableNo")) {
+            tablenumber = intent.getIntExtra("tableNo", 0)
         }
         if (intent.hasExtra("qttmenu1")) {
             menu1 = intent.getIntExtra("qttmenu1",0)
