@@ -52,7 +52,7 @@ class ResultOrder : AppCompatActivity(){
 
 
         val order = OrderDB(tablenumber,menu1,menu2,menu3,menu4,menu5)
-        ref.setValue(order)
+        ref.child("table list").setValue(order)
 
     }
 }
