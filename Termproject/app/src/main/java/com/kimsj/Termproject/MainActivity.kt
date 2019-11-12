@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity() {
         scanQRBtn = findViewById(R.id.scanQR)
 
         scanQRBtn!!.setOnClickListener {
-            val intent = Intent(this, ScanQR::class.java)
+            val scanintent = Intent(this, ScanQR::class.java)
 
-            startActivity(intent)
+            startActivity(scanintent)
         }
     }
 }

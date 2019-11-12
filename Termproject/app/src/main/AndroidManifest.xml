@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:hardwareAccelerated="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".SplashActivity" android:theme="@style/IntroTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
 
         <activity android:name = "com.kimsj.Termproject.Order"/>
         <activity android:name="com.kimsj.Termproject.MainActivity">
@@ -24,6 +30,10 @@
         <activity android:name = "com.kimsj.Termproject.ScanQR"
             android:screenOrientation = "fullSensor"
             tools:replace = "screenOrientation"/>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
     </application>
 
