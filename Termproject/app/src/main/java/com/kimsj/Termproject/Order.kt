@@ -15,6 +15,7 @@ class Order : AppCompatActivity()
     var qttmenu4 = 0
     var qttmenu5 = 0
     var total_price = 0
+    var tableNo: Int ?= 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +25,7 @@ class Order : AppCompatActivity()
         var tableNumber : TextView = findViewById(R.id.TableNo)
 
         if (intent.hasExtra("Table_Number")) {
-            val tableNo = intent.getIntExtra("Table_Number", 1)
+            tableNo = intent.getIntExtra("Table_Number", 1)
             println("table : ${tableNo}")
             tableNumber.text = tableNo.toString()
         }
@@ -127,6 +128,7 @@ class Order : AppCompatActivity()
         order_button.setOnClickListener {
             val orderIntent = Intent(this@Order, ResultOrder::class.java)
 
+            orderIntent.putExtra("tableNo", tableNo!!.toInt())
             orderIntent.putExtra("qttmenu1", qttmenu1)
             orderIntent.putExtra("qttmenu2", qttmenu2)
             orderIntent.putExtra("qttmenu3", qttmenu3)
