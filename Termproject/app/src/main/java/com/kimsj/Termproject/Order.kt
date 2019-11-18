@@ -9,6 +9,19 @@ import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_order.*
+import com.google.firebase.storage.FileDownloadTask
+import com.google.firebase.storage.OnProgressListener
+import androidx.annotation.NonNull
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
+import java.nio.file.Files.exists
+import androidx.core.app.ComponentActivity
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import java.io.File
+import java.io.IOException
+
 
 class Order : AppCompatActivity()
 {
@@ -21,9 +34,12 @@ class Order : AppCompatActivity()
     var tableNo: Int ?= 0
     private var firebasedb : FirebaseDatabase = FirebaseDatabase.getInstance()
     private var ref : DatabaseReference = firebasedb.reference
+    private var menuref : DatabaseReference = firebasedb.getReference("menulist")
+
     private var storage : FirebaseStorage = FirebaseStorage.getInstance("gs://monsterrat-ec078.appspot.com/")
     private var storageref : StorageReference = storage.getReference()
-    private var pathReference : StorageReference = storageref.child("images/image.jpg")
+    private var pathReference : StorageReference = storageref.child("고구마치즈돈까스.jpg")
+
 
     var menuName : ArrayList<String> = ArrayList<String>()
 
@@ -151,7 +167,7 @@ class Order : AppCompatActivity()
             startActivity(orderIntent)
         }
         ref.child("menulist").child("돈까스").setValue("7000")
-        ref.addListenerForSingleValueEvent(object : ValueEventListener {
+        menuref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
 
 
@@ -174,6 +190,37 @@ class Order : AppCompatActivity()
 
             }
         })
+
+        /*try {
+            //로컬에 저장할 폴더의 위치
+            val path = File("Folder path")
+
+            //저장하는 파일의 이름
+            val file = File(path, "File name")
+            try {
+                if (!path.exists()) {
+                    //저장할 폴더가 없으면 생성
+                    path.mkdirs()
+                }
+                file.createNewFile()
+
+                //파일을 다운로드하는 Task 생성, 비동기식으로 진행
+                val fileDownloadTask = pathReference.getFile(file)
+                fileDownloadTask.addOnSuccessListener(OnSuccessListener<FileDownloadTask.TaskSnapshot> {
+                    Toast.makeText(this,"저장이 성공하였습니다.",Toast.LENGTH_LONG)
+                }).addOnFailureListener(OnFailureListener {
+                    //다운로드 실패 후 할 일
+                }).addOnProgressListener(
+                    //진행상태 표시
+                    OnProgressListener<FileDownloadTask.TaskSnapshot> { })
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }*/
+
 
     }
 
