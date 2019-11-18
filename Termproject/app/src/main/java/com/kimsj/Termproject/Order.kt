@@ -9,29 +9,10 @@ import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_order.*
-import com.google.firebase.storage.FileDownloadTask
-import com.google.firebase.storage.OnProgressListener
-import androidx.annotation.NonNull
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
-import java.nio.file.Files.exists
-import androidx.core.app.ComponentActivity
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import java.io.File
-import java.io.IOException
 
 
 class Order : AppCompatActivity()
 {
-    var qttmenu1 = 0
-    var qttmenu2 = 0
-    var qttmenu3 = 0
-    var qttmenu4 = 0
-    var qttmenu5 = 0
-    var total_price = 0
-    var tableNo: Int ?= 0
     private var firebasedb : FirebaseDatabase = FirebaseDatabase.getInstance()
     private var ref : DatabaseReference = firebasedb.reference
     private var menuref : DatabaseReference = firebasedb.getReference("menulist")
@@ -40,10 +21,17 @@ class Order : AppCompatActivity()
     private var storageref : StorageReference = storage.getReference()
     private var pathReference : StorageReference = storageref.child("고구마치즈돈까스.jpg")
 
+    var qttmenu1 = 0
+    var qttmenu2 = 0
+    var qttmenu3 = 0
+    var qttmenu4 = 0
+    var qttmenu5 = 0
+    var total_price = 0
+    var tableNo: Int ?= 0
+    var menus : ArrayList<String> = ArrayList()
+    var prices : ArrayList<Int> = ArrayList()
 
-    var menuName : ArrayList<String> = ArrayList<String>()
 
-    var menuPrice : ArrayList<String> = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +39,34 @@ class Order : AppCompatActivity()
         setContentView(R.layout.activity_order)
 
         var tableNumber : TextView = findViewById(R.id.TableNo)
+
+        ref.child("menulist").child("돈까스").setValue("7000")
+        ref.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+
+
+            }
+            override fun onDataChange(p0: DataSnapshot) {
+
+                for(i in p0.child("menulist").children)
+                {
+                    menus.add(i.key.toString())
+                    prices.add(i.getValue(true).toString().toInt())
+                }
+
+                menu1.text = menus[0]
+                menu2.text = menus[1]
+                menu3.text = menus[2]
+                menu4.text = menus[3]
+                menu5.text = menus[4]
+
+                menu1price.text = prices[0].toString()
+                menu2price.text = prices[1].toString()
+                menu3price.text = prices[2].toString()
+                menu4price.text = prices[3].toString()
+                menu5price.text = prices[4].toString()
+            }
+        })
 
         if (intent.hasExtra("Table_Number")) {
             tableNo = intent.getIntExtra("Table_Number", 1)
@@ -166,30 +182,6 @@ class Order : AppCompatActivity()
 
             startActivity(orderIntent)
         }
-        ref.child("menulist").child("돈까스").setValue("7000")
-        menuref.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onCancelled(p0: DatabaseError) {
-
-
-            }
-
-            override fun onDataChange(p0: DataSnapshot) {
-
-                for(i in p0.child("menulist").children)
-                {
-                    menuName.add(i.key.toString())
-                    println("TYTYTYTYTYTYTTY : ${i.key}")
-                    println("menuname : ${menuName}")
-                    menuPrice.add(i.getValue(true).toString())
-                    println("QYQYQYQYQYQY : ${i.value}")
-                    println("menuprice : ${menuPrice}")
-
-
-
-                }
-
-            }
-        })
 
         /*try {
             //로컬에 저장할 폴더의 위치
