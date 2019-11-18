@@ -98,8 +98,8 @@
         android:id="@+id/menu1"
         android:layout_width="0dp"
         android:layout_height="28dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="236dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="232dp"
         android:fontFamily="@font/yangjin"
         android:text="돈까스"
         android:textAlignment="center"
@@ -365,10 +365,9 @@
 
     <TextView
         android:id="@+id/totalprice"
-        android:layout_width="0dp"
+        android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginEnd="206dp"
-        android:layout_marginBottom="103dp"
+        android:layout_marginBottom="100dp"
         android:fontFamily="@font/yangjin"
         android:gravity="center"
         android:text="0"
@@ -376,13 +375,11 @@
         android:textColor="#FFFFFF"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/minusmenu5" />
+        app:layout_constraintStart_toEndOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginStart="172dp"
         android:fontFamily="@font/yangjin"

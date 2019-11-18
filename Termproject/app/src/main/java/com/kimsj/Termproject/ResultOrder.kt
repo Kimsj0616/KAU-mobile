@@ -1,12 +1,8 @@
 package com.kimsj.Termproject
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.ImageButton
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -73,11 +69,7 @@ class ResultOrder : AppCompatActivity(){
 
             }
         })
-
-
-
         //read(2)
-
     }
 
     fun read(j : Int)
@@ -101,7 +93,6 @@ class ResultOrder : AppCompatActivity(){
                     }
 
                     override fun onChildAdded(p0: DataSnapshot, p1: String?) {
-
                         p0.child("콩나물국밥").getValue(true) //6000
 
                     }
@@ -137,7 +128,5 @@ class ResultOrder : AppCompatActivity(){
                 })
             }
         }
-
     }
-
 }

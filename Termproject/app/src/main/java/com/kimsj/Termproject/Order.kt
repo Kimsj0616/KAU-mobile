@@ -139,5 +139,4 @@ class Order : AppCompatActivity()
             startActivity(orderIntent)
         }
     }
-
 }
