@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_order.*
 
 class Order : AppCompatActivity()
@@ -16,6 +19,15 @@ class Order : AppCompatActivity()
     var qttmenu5 = 0
     var total_price = 0
     var tableNo: Int ?= 0
+    private var firebasedb : FirebaseDatabase = FirebaseDatabase.getInstance()
+    private var ref : DatabaseReference = firebasedb.reference
+    private var storage : FirebaseStorage = FirebaseStorage.getInstance("gs://monsterrat-ec078.appspot.com/")
+    private var storageref : StorageReference = storage.getReference()
+    private var pathReference : StorageReference = storageref.child("images/image.jpg")
+
+    var menuName : ArrayList<String> = ArrayList<String>()
+
+    var menuPrice : ArrayList<String> = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -138,5 +150,31 @@ class Order : AppCompatActivity()
 
             startActivity(orderIntent)
         }
+        ref.child("menulist").child("돈까스").setValue("7000")
+        ref.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+
+                for(i in p0.child("menulist").children)
+                {
+                    menuName.add(i.key.toString())
+                    println("TYTYTYTYTYTYTTY : ${i.key}")
+                    println("menuname : ${menuName}")
+                    menuPrice.add(i.getValue(true).toString())
+                    println("QYQYQYQYQYQY : ${i.value}")
+                    println("menuprice : ${menuPrice}")
+
+
+
+                }
+
+            }
+        })
+
     }
+
 }
