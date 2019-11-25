@@ -43,9 +43,10 @@ dependencies {
 
     implementation'com.google.gms:google-services:4.2.0'
     implementation'com.google.firebase:firebase-database:18.0.0'
-    implementation 'com.google.firebase:firebase-core:17.0.0'
-    implementation 'com.google.firebase:firebase-storage:18.0.0'
+    implementation 'com.google.firebase:firebase-core:17.2.0'
+    implementation 'com.google.firebase:firebase-storage:19.0.1'
 
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+    implementation 'com.github.bootpay:client_android_java:2.0.123'
 
 }

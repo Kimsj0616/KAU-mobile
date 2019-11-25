@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.026" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addbutton"
         android:layout_width="92dp"
         android:layout_height="58dp"
         android:background="#FFFFFF"
@@ -35,17 +35,183 @@
         android:textColor="#FF5757"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.849" />
+        app:layout_constraintStart_toStartOf="@+id/total"
+        app:layout_constraintTop_toBottomOf="@+id/total" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="314dp"
-        android:layout_height="327dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/tableno"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="200dp"
+        android:gravity="center"
+        android:text=" "
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/yangjin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name1"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text=" "
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/yangjin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableno" />
+
+    <TextView
+        android:id="@+id/name2"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:gravity="center"
+        android:text=" "
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/yangjin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name1" />
+
+    <TextView
+        android:id="@+id/name3"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:gravity="center"
+        android:text=" "
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/yangjin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name2" />
+
+    <TextView
+        android:id="@+id/name4"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:gravity="center"
+        android:text=" "
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/yangjin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name3" />
+
+    <TextView
+        android:id="@+id/name5"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:gravity="center"
+        android:text=" "
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/yangjin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name4" />
+
+    <TextView
+        android:id="@+id/qtt1"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:text=" "
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/yangjin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableno" />
+
+    <TextView
+        android:id="@+id/qtt2"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:text=" "
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/yangjin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qtt1" />
+
+    <TextView
+        android:id="@+id/qtt3"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:text=" "
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/yangjin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qtt2" />
+
+    <TextView
+        android:id="@+id/qtt4"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:text=" "
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/yangjin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qtt3" />
+
+    <TextView
+        android:id="@+id/qtt5"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:text=" "
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/yangjin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qtt4" />
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text=" "
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/yangjin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name5" />
+
+    <Button
+        android:id="@+id/pay"
+        android:layout_width="92dp"
+        android:layout_height="58dp"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/yangjin"
+        android:gravity="center"
+        android:text="결제하기"
+        android:textAlignment="center"
+        android:textColor="#FF5757"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/total"
+        app:layout_constraintTop_toBottomOf="@+id/total" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

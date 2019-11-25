@@ -1,11 +1,15 @@
 package com.kimsj.Termproject
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import kotlinx.android.synthetic.main.activity_resultorder.*
 
 class ResultOrder : AppCompatActivity(){
 
@@ -16,39 +20,93 @@ class ResultOrder : AppCompatActivity(){
     private var pathReference : StorageReference = storageref.child("images/image.jpg")
 
     var tablenumber :Int? = null
-    var menu1 :Int? = 0
-    var menu2 :Int? = 0
-    var menu3 :Int? = 0
-    var menu4 :Int? = 0
-    var menu5 :Int? = 0
-    var count : Int?=null
+    var pay : Button?=null
+    var menuqtt1 :Int? = 0
+    var menuqtt2 :Int? = 0
+    var menuqtt3 :Int? = 0
+    var menuqtt4 :Int? = 0
+    var menuqtt5 :Int? = 0
+    var totalprice :Int? = 0
+    var count : Int? = null
+    var menus : ArrayList<String> = ArrayList()
+    var prices : ArrayList<Int> = ArrayList()
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         setContentView(R.layout.activity_resultorder)
+
+        pay = findViewById(R.id.pay)
+        pay!!.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(p0: View?) {
+
+                var intent : Intent = Intent(this@ResultOrder,PayActivity::class.java)
+
+                startActivity(intent)
+
+            }
+        })
+
+        ref.child("menulist").child("돈까스").setValue("7000")
+        ref.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+
+
+            }
+            override fun onDataChange(p0: DataSnapshot) {
+
+                for(i in p0.child("menulist").children)
+                {
+                    menus.add(i.key.toString())
+                    prices.add(i.getValue(true).toString().toInt())
+                }
+
+                name1.text = menus[0]
+                name2.text = menus[1]
+                name3.text = menus[2]
+                name4.text = menus[3]
+                name5.text = menus[4]
+            }
+        })
 
         if (intent.hasExtra("tableNo")) {
             tablenumber = intent.getIntExtra("tableNo", 0)
+            tableno.text = "TABLE ${tablenumber}"
         }
         if (intent.hasExtra("qttmenu1")) {
-            menu1 = intent.getIntExtra("qttmenu1",0)
+            menuqtt1 = intent.getIntExtra("qttmenu1",0)
+            qtt1.text = menuqtt1.toString()
         }
         if (intent.hasExtra("qttmenu2")) {
-            menu2 = intent.getIntExtra("qttmenu2",0)
+            menuqtt2 = intent.getIntExtra("qttmenu2",0)
+            qtt2.text = menuqtt2.toString()
         }
         if (intent.hasExtra("qttmenu3")) {
-            menu3 = intent.getIntExtra("qttmenu3",0)
+            menuqtt3 = intent.getIntExtra("qttmenu3",0)
+            qtt3.text = menuqtt3.toString()
         }
-
         if (intent.hasExtra("qttmenu4")) {
-            menu4 = intent.getIntExtra("qttmenu4",0)
+            menuqtt4 = intent.getIntExtra("qttmenu4",0)
+            qtt4.text = menuqtt4.toString()
         }
         if (intent.hasExtra("qttmenu5")) {
-            menu5 = intent.getIntExtra("qttmenu5",0)
+            menuqtt5 = intent.getIntExtra("qttmenu5",0)
+            qtt5.text = menuqtt5.toString()
+        }
+        if (intent.hasExtra("total_price")) {
+            totalprice = intent.getIntExtra("total_price",0)
+            total.text = totalprice.toString()
+        }
+
+        addbutton.setOnClickListener {
+            val add_intent = Intent(this, Additional::class.java)
+
+            add_intent.putExtra("tableNo", tablenumber)
+            add_intent.putExtra("total_price", totalprice)
+
+            startActivity(add_intent)
         }
 
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -61,7 +119,7 @@ class ResultOrder : AppCompatActivity(){
 
                 count = p0.child("tablecount").value.toString().toInt()
                 //count=0
-                val order = OrderDB(tablenumber,menu1,menu2,menu3,menu4,menu5)
+                val order = OrderDB(tablenumber,menuqtt1,menuqtt2,menuqtt3,menuqtt4,menuqtt5)
 
                 ref.child("table list").child("${count}").setValue(order.map1)
 

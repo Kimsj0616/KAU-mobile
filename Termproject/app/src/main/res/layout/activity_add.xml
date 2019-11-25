@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FF5757">
-
-    <ImageView
-        android:id="@+id/pic1"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        app:layout_constraintBottom_toBottomOf="@+id/menu1"
-        app:layout_constraintEnd_toEndOf="@+id/menu1"
-        app:layout_constraintStart_toStartOf="@+id/menu1"
-        app:srcCompat="@mipmap/ic_launcher" />
 
     <Button
         android:id="@+id/minusmenu4"
@@ -86,14 +76,14 @@
         app:layout_constraintTop_toTopOf="@+id/menu3" />
 
     <Button
-        android:id="@+id/order_button"
+        android:id="@+id/reorder_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:background="#FFFFFF"
         android:fontFamily="@font/yangjin"
         android:gravity="center"
-        android:text="주문하기"
+        android:text="추가 주문하기"
         android:textColor="#FF5757"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -389,7 +379,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="172dp"
         android:fontFamily="@font/yangjin"
-        android:text="총액:"
+        android:text="합계:"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="30dp"
@@ -399,31 +389,29 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="170dp"
+        android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_marginStart="28dp"
-        android:fontFamily="@font/bangers"
-        android:text="Table"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/yangjin"
+        android:text="추가주문"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="60dp"
-        app:layout_constraintBottom_toBottomOf="@+id/TableNo"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/TableNo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/bangers"
-        android:text="TextView"
-        android:textColor="#FFFFFF"
-        android:textSize="60dp"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/pic2"
+        android:id="@+id/add_pic1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="@+id/menu1"
+        app:layout_constraintEnd_toEndOf="@+id/menu1"
+        app:layout_constraintStart_toStartOf="@+id/menu1"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/add_pic2"
         android:layout_width="70dp"
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="@+id/menu2"
@@ -432,7 +420,7 @@
         app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageView
-        android:id="@+id/pic3"
+        android:id="@+id/add_pic3"
         android:layout_width="70dp"
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="@+id/menu3"
@@ -441,7 +429,7 @@
         app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageView
-        android:id="@+id/pic4"
+        android:id="@+id/add_pic4"
         android:layout_width="70dp"
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="@+id/menu4"
@@ -450,11 +438,12 @@
         app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageView
-        android:id="@+id/pic5"
+        android:id="@+id/add_pic5"
         android:layout_width="70dp"
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="@+id/menu5"
         app:layout_constraintEnd_toEndOf="@+id/menu5"
+        app:layout_constraintHorizontal_bias="0.464"
         app:layout_constraintStart_toStartOf="@+id/menu5"
         app:srcCompat="@mipmap/ic_launcher" />
 

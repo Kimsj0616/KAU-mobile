@@ -1,14 +1,22 @@
 package com.kimsj.Termproject
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.database.*
+import com.google.firebase.storage.FileDownloadTask
 import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.OnProgressListener
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_order.*
+import java.io.File
+import java.io.IOException
 
 
 class Order : AppCompatActivity()
@@ -16,9 +24,8 @@ class Order : AppCompatActivity()
     private var firebasedb : FirebaseDatabase = FirebaseDatabase.getInstance()
     private var ref : DatabaseReference = firebasedb.reference
     private var menuref : DatabaseReference = firebasedb.getReference("menulist")
-
-    private var storage : FirebaseStorage = FirebaseStorage.getInstance("gs://monsterrat-ec078.appspot.com/")
-    private var storageref : StorageReference = storage.getReference()
+    private var storage  = FirebaseStorage.getInstance()
+    private var storageref = storage.getReferenceFromUrl("gs://monsterrat-ec078.appspot.com")
     private var pathReference : StorageReference = storageref.child("고구마치즈돈까스.jpg")
 
     var qttmenu1 = 0
@@ -28,15 +35,57 @@ class Order : AppCompatActivity()
     var qttmenu5 = 0
     var total_price = 0
     var tableNo: Int ?= 0
+    var pics : ArrayList<Bitmap> = ArrayList()
     var menus : ArrayList<String> = ArrayList()
     var prices : ArrayList<Int> = ArrayList()
 
+    private fun resizeBitmap(bitmap: Bitmap): Bitmap {
+        var w : Int = bitmap.width
+        var h : Int = bitmap.height
+        //println("w: ${w}, h: ${h}")
 
+        h = w
+
+        //println("w: ${w}, h: ${h}")
+        return Bitmap.createScaledBitmap(
+            bitmap,
+            w,
+            h,
+            false
+        )
+    }
+
+    fun getlist(){
+        storageref.listAll()
+            .addOnSuccessListener { listResult ->
+                listResult.items.forEach { item ->
+                    item.getBytes(2048 * 4096).addOnSuccessListener  {
+                        val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
+                        var resizedbitmap = resizeBitmap(bitmap)
+                        pics.add(resizedbitmap)
+                    }
+                        .addOnFailureListener {
+                        println("storage-read-fail-each")
+                    }
+                }
+            }
+            .addOnFailureListener {
+                println("storage-read-fail")
+            }
+
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_order)
+
+        pic1.setImageBitmap(pics[0])
+        pic2.setImageBitmap(pics[1])
+        pic3.setImageBitmap(pics[2])
+        pic4.setImageBitmap(pics[3])
+        pic5.setImageBitmap(pics[4])
 
         var tableNumber : TextView = findViewById(R.id.TableNo)
 
@@ -67,6 +116,8 @@ class Order : AppCompatActivity()
                 menu5price.text = prices[4].toString()
             }
         })
+
+        getlist()
 
         if (intent.hasExtra("Table_Number")) {
             tableNo = intent.getIntExtra("Table_Number", 1)
@@ -183,7 +234,7 @@ class Order : AppCompatActivity()
             startActivity(orderIntent)
         }
 
-        /*try {
+        try {
             //로컬에 저장할 폴더의 위치
             val path = File("Folder path")
 
@@ -211,9 +262,8 @@ class Order : AppCompatActivity()
 
         } catch (e: Exception) {
             e.printStackTrace()
-        }*/
+        }
 
 
     }
-
 }
