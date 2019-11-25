@@ -63,8 +63,8 @@ class Order : AppCompatActivity()
                         val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
                         var resizedbitmap = resizeBitmap(bitmap)
                         pics.add(resizedbitmap)
-                    }
-                        .addOnFailureListener {
+                        println("@@@@@@@@@@@@@@@ ${pics}")
+                    }.addOnFailureListener {
                         println("storage-read-fail-each")
                     }
                 }
@@ -72,8 +72,6 @@ class Order : AppCompatActivity()
             .addOnFailureListener {
                 println("storage-read-fail")
             }
-
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,11 +79,11 @@ class Order : AppCompatActivity()
 
         setContentView(R.layout.activity_order)
 
-        pic1.setImageBitmap(pics[0])
+        /*pic1.setImageBitmap(pics[0])
         pic2.setImageBitmap(pics[1])
         pic3.setImageBitmap(pics[2])
         pic4.setImageBitmap(pics[3])
-        pic5.setImageBitmap(pics[4])
+        pic5.setImageBitmap(pics[4])*/
 
         var tableNumber : TextView = findViewById(R.id.TableNo)
 
@@ -259,11 +257,8 @@ class Order : AppCompatActivity()
             } catch (e: IOException) {
                 e.printStackTrace()
             }
-
         } catch (e: Exception) {
             e.printStackTrace()
         }
-
-
     }
 }

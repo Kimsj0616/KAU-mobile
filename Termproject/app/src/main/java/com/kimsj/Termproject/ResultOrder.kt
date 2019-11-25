@@ -42,9 +42,10 @@ class ResultOrder : AppCompatActivity(){
         pay!!.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
 
-                var intent : Intent = Intent(this@ResultOrder,PayActivity::class.java)
+                var payintent : Intent = Intent(this@ResultOrder,PayActivity::class.java)
+                payintent.putExtra("totalprice", totalprice)
 
-                startActivity(intent)
+                startActivity(payintent)
 
             }
         })
@@ -104,6 +105,11 @@ class ResultOrder : AppCompatActivity(){
             val add_intent = Intent(this, Additional::class.java)
 
             add_intent.putExtra("tableNo", tablenumber)
+            add_intent.putExtra("menuqtt1", menuqtt1)
+            add_intent.putExtra("menuqtt2", menuqtt2)
+            add_intent.putExtra("menuqtt3", menuqtt3)
+            add_intent.putExtra("menuqtt4", menuqtt4)
+            add_intent.putExtra("menuqtt5", menuqtt5)
             add_intent.putExtra("total_price", totalprice)
 
             startActivity(add_intent)

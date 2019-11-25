@@ -46,12 +46,17 @@ class Additional : AppCompatActivity() {
     private var pathReference : StorageReference = storageref.child("고구마치즈돈까스.jpg")
 
     var tablenumber : Int = 0
+    var pre_qtt1 = 0
+    var pre_qtt2 = 0
+    var pre_qtt3 = 0
+    var pre_qtt4 = 0
+    var pre_qtt5 = 0
     var add_qttmenu1 = 0
     var add_qttmenu2 = 0
     var add_qttmenu3 = 0
     var add_qttmenu4 = 0
     var add_qttmenu5 = 0
-    var pre_price : Int ?= 0
+    var pre_price = 0
     var add_price : Int = 0
     var pics : ArrayList<Bitmap> = ArrayList()
     var menus : ArrayList<String> = ArrayList()
@@ -97,11 +102,11 @@ class Additional : AppCompatActivity() {
 
         setContentView(R.layout.activity_add)
 
-        add_pic1.setImageBitmap(pics[0])
+        /*add_pic1.setImageBitmap(pics[0])
         add_pic2.setImageBitmap(pics[1])
         add_pic3.setImageBitmap(pics[2])
         add_pic4.setImageBitmap(pics[3])
-        add_pic5.setImageBitmap(pics[4])
+        add_pic5.setImageBitmap(pics[4])*/
 
         ref.child("menulist").child("돈까스").setValue("7000")
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -134,40 +139,65 @@ class Additional : AppCompatActivity() {
         if(intent.hasExtra("tableNo")){
             tablenumber = intent.getIntExtra("tableNo", 0)
         }
+        if(intent.hasExtra("menuqtt1")){
+            pre_qtt1 = intent.getIntExtra("menuqtt1", 0)
+        }
+        if(intent.hasExtra("menuqtt2")){
+            pre_qtt2 = intent.getIntExtra("menuqtt2", 0)
+        }
+        if(intent.hasExtra("menuqtt3")){
+            pre_qtt3 = intent.getIntExtra("menuqtt3", 0)
+        }
+        if(intent.hasExtra("menuqtt4")){
+            pre_qtt4 = intent.getIntExtra("menuqtt4", 0)
+        }
+        if(intent.hasExtra("menuqtt5")){
+            pre_qtt5 = intent.getIntExtra("menuqtt5", 0)
+        }
         if(intent.hasExtra("total_price")){
             pre_price = intent.getIntExtra("total_price", 0)
         }
 
         plusmenu1.setOnClickListener {
+            pre_qtt1++
             add_qttmenu1++
+            pre_price += menu1price.text.toString().toInt()
             add_price += menu1price.text.toString().toInt()
             totalprice.text = add_price.toString()
             menu1qtt.text = add_qttmenu1.toString()
         }
 
         plusmenu2.setOnClickListener {
+            pre_qtt2++
             add_qttmenu2++
+            pre_price += menu2price.text.toString().toInt()
             add_price += menu2price.text.toString().toInt()
             totalprice.text = add_price.toString()
             menu2qtt.text = add_qttmenu2.toString()
         }
 
         plusmenu3.setOnClickListener {
+            pre_qtt3++
             add_qttmenu3++
+            pre_price += menu3price.text.toString().toInt()
             add_price += menu3price.text.toString().toInt()
             totalprice.text = add_price.toString()
             menu3qtt.text = add_qttmenu3.toString()
         }
 
         plusmenu4.setOnClickListener {
+            pre_qtt4++
             add_qttmenu4++
+            pre_price += menu4price.text.toString().toInt()
             add_price += menu4price.text.toString().toInt()
             totalprice.text = add_price.toString()
             menu4qtt.text = add_qttmenu4.toString()
         }
 
         plusmenu5.setOnClickListener {
+            pre_qtt5++
             add_qttmenu5++
+            pre_price += menu5price.text.toString().toInt()
             add_price += menu5price.text.toString().toInt()
             totalprice.text = add_price.toString()
             menu5qtt.text = add_qttmenu5.toString()
@@ -178,7 +208,9 @@ class Additional : AppCompatActivity() {
                 Toast.makeText(this@Additional, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG).show()
             }
             else{
+                pre_qtt1--
                 add_qttmenu1--
+                pre_price -= menu1price.text.toString().toInt()
                 add_price -= menu1price.text.toString().toInt()
                 totalprice.text = add_price.toString()
                 menu1qtt.text = add_qttmenu1.toString()
@@ -190,7 +222,9 @@ class Additional : AppCompatActivity() {
                 Toast.makeText(this@Additional, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG).show()
             }
             else{
+                pre_qtt2--
                 add_qttmenu2--
+                pre_price -= menu2price.text.toString().toInt()
                 add_price -= menu2price.text.toString().toInt()
                 totalprice.text = add_price.toString()
                 menu2qtt.text = add_qttmenu2.toString()
@@ -202,7 +236,9 @@ class Additional : AppCompatActivity() {
                 Toast.makeText(this@Additional, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG).show()
             }
             else{
+                pre_qtt3--
                 add_qttmenu3--
+                pre_price -= menu3price.text.toString().toInt()
                 add_price -= menu3price.text.toString().toInt()
                 totalprice.text = add_price.toString()
                 menu3qtt.text = add_qttmenu3.toString()
@@ -214,7 +250,9 @@ class Additional : AppCompatActivity() {
                 Toast.makeText(this@Additional, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG).show()
             }
             else{
+                pre_qtt4--
                 add_qttmenu4--
+                pre_price -= menu4price.text.toString().toInt()
                 add_price -= menu4price.text.toString().toInt()
                 totalprice.text = add_price.toString()
                 menu4qtt.text = add_qttmenu4.toString()
@@ -226,7 +264,9 @@ class Additional : AppCompatActivity() {
                 Toast.makeText(this@Additional, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG).show()
             }
             else{
+                pre_qtt5--
                 add_qttmenu5--
+                pre_price -= menu5price.text.toString().toInt()
                 add_price -= menu5price.text.toString().toInt()
                 totalprice.text = add_price.toString()
                 menu5qtt.text = add_qttmenu5.toString()
@@ -237,12 +277,12 @@ class Additional : AppCompatActivity() {
             val re_orderIntent = Intent(this@Additional, ResultOrder::class.java)
 
             re_orderIntent.putExtra("tableNo", tablenumber!!.toInt())
-            re_orderIntent.putExtra("qttmenu1", add_qttmenu1)
-            re_orderIntent.putExtra("qttmenu2", add_qttmenu2)
-            re_orderIntent.putExtra("qttmenu3", add_qttmenu3)
-            re_orderIntent.putExtra("qttmenu4", add_qttmenu4)
-            re_orderIntent.putExtra("qttmenu5", add_qttmenu5)
-            re_orderIntent.putExtra("total_price", add_price)
+            re_orderIntent.putExtra("qttmenu1", pre_qtt1)
+            re_orderIntent.putExtra("qttmenu2", pre_qtt2)
+            re_orderIntent.putExtra("qttmenu3", pre_qtt3)
+            re_orderIntent.putExtra("qttmenu4", pre_qtt4)
+            re_orderIntent.putExtra("qttmenu5", pre_qtt5)
+            re_orderIntent.putExtra("total_price", pre_price)
 
             startActivity(re_orderIntent)
         }
