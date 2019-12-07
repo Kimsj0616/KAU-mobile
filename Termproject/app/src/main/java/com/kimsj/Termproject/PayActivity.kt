@@ -56,11 +56,11 @@ class PayActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener
             m=Method.BANK;
 
         }
-       R.id.button3->
+       /*R.id.button3->
         {
 
             m=Method.VBANK;
-        }
+        }*/
 
 
 
