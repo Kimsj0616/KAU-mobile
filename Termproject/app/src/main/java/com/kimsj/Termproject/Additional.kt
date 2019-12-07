@@ -26,6 +26,7 @@ import kotlinx.android.synthetic.main.activity_add.plusmenu3
 import kotlinx.android.synthetic.main.activity_add.plusmenu4
 import kotlinx.android.synthetic.main.activity_add.plusmenu5
 import kotlinx.android.synthetic.main.activity_add.totalprice
+import kotlinx.android.synthetic.main.activity_order.*
 import kotlinx.android.synthetic.main.activity_order.menu1
 import kotlinx.android.synthetic.main.activity_order.menu1price
 import kotlinx.android.synthetic.main.activity_order.menu2
@@ -45,6 +46,7 @@ class Additional : AppCompatActivity() {
     private var storageref = storage.getReferenceFromUrl("gs://monsterrat-ec078.appspot.com")
     private var pathReference : StorageReference = storageref.child("고구마치즈돈까스.jpg")
 
+    var count = 0
     var tablenumber : Int = 0
     var pre_qtt1 = 0
     var pre_qtt2 = 0
@@ -58,18 +60,14 @@ class Additional : AppCompatActivity() {
     var add_qttmenu5 = 0
     var pre_price = 0
     var add_price : Int = 0
-    var pics : ArrayList<Bitmap> = ArrayList()
     var menus : ArrayList<String> = ArrayList()
     var prices : ArrayList<Int> = ArrayList()
 
     private fun resizeBitmap(bitmap: Bitmap): Bitmap {
         var w : Int = bitmap.width
         var h : Int = bitmap.height
-        //println("w: ${w}, h: ${h}")
 
         h = w
-
-        //println("w: ${w}, h: ${h}")
         return Bitmap.createScaledBitmap(
             bitmap,
             w,
@@ -85,7 +83,27 @@ class Additional : AppCompatActivity() {
                     item.getBytes(2048 * 4096).addOnSuccessListener  {
                         val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
                         var resizedbitmap = resizeBitmap(bitmap)
-                        pics.add(resizedbitmap)
+                        println("######################${resizedbitmap}")
+                        if (count == 0){
+                            add_pic1.setImageBitmap(resizedbitmap)
+                            count++
+                        }
+                        else if (count == 1){
+                            add_pic2.setImageBitmap(resizedbitmap)
+                            count++
+                        }
+                        else if (count == 2){
+                            add_pic3.setImageBitmap(resizedbitmap)
+                            count++
+                        }
+                        else if (count == 3){
+                            add_pic4.setImageBitmap(resizedbitmap)
+                            count++
+                        }
+                        else if (count == 4){
+                            add_pic5.setImageBitmap(resizedbitmap)
+                            count++
+                        }
                     }
                         .addOnFailureListener {
                             println("storage-read-fail-each")
@@ -102,11 +120,7 @@ class Additional : AppCompatActivity() {
 
         setContentView(R.layout.activity_add)
 
-        /*add_pic1.setImageBitmap(pics[0])
-        add_pic2.setImageBitmap(pics[1])
-        add_pic3.setImageBitmap(pics[2])
-        add_pic4.setImageBitmap(pics[3])
-        add_pic5.setImageBitmap(pics[4])*/
+        getlist()
 
         ref.child("menulist").child("돈까스").setValue("7000")
         ref.addListenerForSingleValueEvent(object : ValueEventListener {

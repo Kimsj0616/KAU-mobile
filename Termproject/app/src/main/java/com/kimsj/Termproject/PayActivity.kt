@@ -117,13 +117,5 @@ class PayActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener
 
             }
         }).show()
-
-
-
-
-
-
-
     }
-
 }

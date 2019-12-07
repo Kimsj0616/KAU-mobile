@@ -11,85 +11,85 @@
         android:id="@+id/pic1"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        app:layout_constraintBottom_toBottomOf="@+id/menu1"
-        app:layout_constraintEnd_toEndOf="@+id/menu1"
-        app:layout_constraintStart_toStartOf="@+id/menu1"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         app:srcCompat="@mipmap/ic_launcher" />
 
     <Button
         android:id="@+id/minusmenu4"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="50dp"
         android:background="#FFFFFF"
         android:gravity="center"
         android:text="-"
         android:textColor="#FF5757"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/plusmenu4"
-        app:layout_constraintStart_toEndOf="@+id/plusmenu4"
-        app:layout_constraintTop_toTopOf="@+id/plusmenu4" />
+        app:layout_constraintBottom_toBottomOf="@+id/menu4price"
+        app:layout_constraintStart_toEndOf="@+id/menu4"
+        app:layout_constraintTop_toTopOf="@+id/menu4" />
 
     <Button
         android:id="@+id/minusmenu5"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="50dp"
         android:background="#FFFFFF"
         android:gravity="center"
         android:text="-"
         android:textColor="#FF5757"
         android:textSize="30dp"
-        app:layout_constraintStart_toEndOf="@+id/plusmenu5"
-        app:layout_constraintTop_toTopOf="@+id/plusmenu5" />
+        app:layout_constraintBottom_toBottomOf="@+id/menu5price"
+        app:layout_constraintStart_toEndOf="@+id/menu5"
+        app:layout_constraintTop_toTopOf="@+id/menu5" />
 
     <Button
         android:id="@+id/plusmenu5"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="100dp"
         android:background="#FFFFFF"
+        android:gravity="center"
         android:text="+"
         android:textColor="#FF5757"
         android:textSize="30dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="@+id/menu5"
-        app:layout_constraintStart_toEndOf="@+id/menu5"
-        app:layout_constraintTop_toTopOf="@+id/menu5" />
+        app:layout_constraintBottom_toBottomOf="@+id/minusmenu5"
+        app:layout_constraintStart_toEndOf="@+id/menu5qtt"
+        app:layout_constraintTop_toTopOf="@+id/minusmenu5"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/plusmenu4"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="100dp"
         android:background="#FFFFFF"
+        android:gravity="center"
         android:text="+"
         android:textColor="#FF5757"
         android:textSize="30dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="@+id/menu4"
-        app:layout_constraintStart_toEndOf="@+id/menu4"
-        app:layout_constraintTop_toTopOf="@+id/menu4" />
+        app:layout_constraintBottom_toBottomOf="@+id/minusmenu4"
+        app:layout_constraintStart_toEndOf="@+id/menu4qtt"
+        app:layout_constraintTop_toTopOf="@+id/minusmenu4" />
 
     <Button
         android:id="@+id/plusmenu3"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="100dp"
         android:background="#FFFFFF"
+        android:gravity="center"
         android:text="+"
         android:textColor="#FF5757"
         android:textSize="30dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="@+id/menu3"
-        app:layout_constraintStart_toEndOf="@+id/menu3"
-        app:layout_constraintTop_toTopOf="@+id/menu3" />
+        app:layout_constraintBottom_toBottomOf="@+id/minusmenu3"
+        app:layout_constraintStart_toEndOf="@+id/menu3qtt"
+        app:layout_constraintTop_toTopOf="@+id/minusmenu3" />
 
     <Button
         android:id="@+id/order_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
         android:background="#FFFFFF"
         android:fontFamily="@font/yangjin"
         android:gravity="center"
@@ -106,13 +106,13 @@
         android:id="@+id/menu1"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginStart="20dp"
         android:fontFamily="@font/yangjin"
         android:text=" "
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/pic1"
+        app:layout_constraintTop_toTopOf="@+id/pic1" />
 
     <TextView
         android:id="@+id/menu1price"
@@ -122,12 +122,9 @@
         android:text=" "
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/menu1"
-        app:layout_constraintEnd_toStartOf="@+id/plusmenu1"
-        app:layout_constraintHorizontal_bias="0.586"
-        app:layout_constraintStart_toEndOf="@+id/menu1"
-        app:layout_constraintTop_toTopOf="@+id/menu1"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="@+id/menu1"
+        app:layout_constraintStart_toStartOf="@+id/menu1"
+        app:layout_constraintTop_toBottomOf="@+id/menu1" />
 
     <TextView
         android:id="@+id/menu1qtt"
@@ -137,189 +134,173 @@
         android:text="0"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/plusmenu1"
-        app:layout_constraintEnd_toStartOf="@+id/minusmenu1"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/plusmenu1"
-        app:layout_constraintTop_toTopOf="@+id/plusmenu1" />
+        app:layout_constraintBottom_toBottomOf="@+id/minusmenu1"
+        app:layout_constraintStart_toEndOf="@+id/minusmenu1"
+        app:layout_constraintTop_toTopOf="@+id/minusmenu1" />
 
     <Button
         android:id="@+id/minusmenu1"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="315dp"
+        android:layout_marginStart="50dp"
         android:background="#FFFFFF"
         android:gravity="center"
         android:text="-"
         android:textColor="#FF5757"
         android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/totalprice"
-        app:layout_constraintStart_toEndOf="@+id/plusmenu1"
-        app:layout_constraintTop_toTopOf="@+id/plusmenu1"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toBottomOf="@+id/menu1price"
+        app:layout_constraintStart_toEndOf="@+id/menu1"
+        app:layout_constraintTop_toTopOf="@+id/menu1" />
 
     <Button
         android:id="@+id/plusmenu1"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="100dp"
         android:background="#FFFFFF"
         android:gravity="center"
         android:text="+"
         android:textColor="#FF5757"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/menu1"
-        app:layout_constraintStart_toEndOf="@+id/menu1"
-        app:layout_constraintTop_toTopOf="@+id/menu1"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintBottom_toBottomOf="@+id/minusmenu1"
+        app:layout_constraintStart_toEndOf="@+id/menu1qtt"
+        app:layout_constraintTop_toTopOf="@+id/minusmenu1" />
 
     <TextView
         android:id="@+id/menu2"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
         android:fontFamily="@font/yangjin"
         android:text=" "
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/menu1"
-        app:layout_constraintTop_toBottomOf="@+id/menu1" />
+        app:layout_constraintStart_toEndOf="@+id/pic2"
+        app:layout_constraintTop_toTopOf="@+id/pic2" />
 
     <TextView
         android:id="@+id/menu3"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
         android:fontFamily="@font/yangjin"
         android:text=" "
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/menu2"
-        app:layout_constraintTop_toBottomOf="@+id/menu2" />
+        app:layout_constraintStart_toEndOf="@+id/pic3"
+        app:layout_constraintTop_toTopOf="@+id/pic3" />
 
     <TextView
         android:id="@+id/menu5"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
         android:fontFamily="@font/yangjin"
         android:text="  "
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/menu4"
-        app:layout_constraintTop_toBottomOf="@+id/menu4" />
+        app:layout_constraintStart_toEndOf="@+id/pic5"
+        app:layout_constraintTop_toTopOf="@+id/pic5" />
 
     <TextView
         android:id="@+id/menu4"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
         android:fontFamily="@font/yangjin"
         android:text=" "
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/menu3"
-        app:layout_constraintTop_toBottomOf="@+id/menu3" />
+        app:layout_constraintStart_toEndOf="@+id/pic4"
+        app:layout_constraintTop_toTopOf="@+id/pic4" />
 
     <Button
         android:id="@+id/minusmenu3"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="50dp"
         android:background="#FFFFFF"
         android:gravity="center"
         android:text="-"
         android:textColor="#FF5757"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/plusmenu3"
-        app:layout_constraintStart_toEndOf="@+id/plusmenu3"
-        app:layout_constraintTop_toTopOf="@+id/plusmenu3" />
+        app:layout_constraintBottom_toBottomOf="@+id/menu3price"
+        app:layout_constraintStart_toEndOf="@+id/menu3"
+        app:layout_constraintTop_toTopOf="@+id/menu3" />
 
     <Button
         android:id="@+id/minusmenu2"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="50dp"
         android:background="#FFFFFF"
         android:gravity="center"
         android:text="-"
         android:textColor="#FF5757"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/plusmenu2"
-        app:layout_constraintStart_toEndOf="@+id/plusmenu2"
-        app:layout_constraintTop_toTopOf="@+id/plusmenu2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toBottomOf="@+id/menu2price"
+        app:layout_constraintStart_toEndOf="@+id/menu2"
+        app:layout_constraintTop_toTopOf="@+id/menu2" />
 
     <Button
         android:id="@+id/plusmenu2"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="100dp"
         android:background="#FFFFFF"
+        android:gravity="center"
         android:text="+"
         android:textColor="#FF5757"
         android:textSize="30dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="@+id/menu2"
-        app:layout_constraintStart_toEndOf="@+id/menu2"
-        app:layout_constraintTop_toTopOf="@+id/menu2" />
+        app:layout_constraintBottom_toBottomOf="@+id/minusmenu2"
+        app:layout_constraintStart_toEndOf="@+id/menu2qtt"
+        app:layout_constraintTop_toTopOf="@+id/minusmenu2" />
 
     <TextView
         android:id="@+id/menu2qtt"
-        android:layout_width="49dp"
-        android:layout_height="18dp"
-        android:text="0"
+        android:layout_width="46dp"
+        android:layout_height="20dp"
         android:fontFamily="@font/yangjin"
-        android:textColor="#FFFFFF"
+        android:text="0"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@+id/plusmenu2"
-        app:layout_constraintEnd_toStartOf="@+id/minusmenu1"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/plusmenu1"
-        app:layout_constraintTop_toTopOf="@+id/plusmenu2" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/minusmenu2"
+        app:layout_constraintStart_toEndOf="@+id/minusmenu2"
+        app:layout_constraintTop_toTopOf="@+id/minusmenu2" />
 
     <TextView
         android:id="@+id/menu3qtt"
         android:layout_width="49dp"
         android:layout_height="18dp"
-        android:text="0"
         android:fontFamily="@font/yangjin"
-        android:textColor="#FFFFFF"
+        android:text="0"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@+id/plusmenu3"
-        app:layout_constraintEnd_toStartOf="@+id/minusmenu1"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/plusmenu1"
-        app:layout_constraintTop_toTopOf="@+id/plusmenu3" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/minusmenu3"
+        app:layout_constraintStart_toEndOf="@+id/minusmenu3"
+        app:layout_constraintTop_toTopOf="@+id/minusmenu3" />
 
     <TextView
         android:id="@+id/menu4qtt"
         android:layout_width="49dp"
         android:layout_height="18dp"
-        android:text="0"
         android:fontFamily="@font/yangjin"
-        android:textColor="#FFFFFF"
+        android:text="0"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@+id/plusmenu4"
-        app:layout_constraintEnd_toStartOf="@+id/minusmenu1"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/plusmenu1"
-        app:layout_constraintTop_toTopOf="@+id/plusmenu4" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/minusmenu4"
+        app:layout_constraintStart_toEndOf="@+id/minusmenu4"
+        app:layout_constraintTop_toTopOf="@+id/minusmenu4" />
 
     <TextView
         android:id="@+id/menu5qtt"
         android:layout_width="49dp"
         android:layout_height="18dp"
-        android:text="0"
         android:fontFamily="@font/yangjin"
-        android:textColor="#FFFFFF"
+        android:text="0"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@+id/plusmenu5"
-        app:layout_constraintEnd_toStartOf="@+id/minusmenu1"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/plusmenu1"
-        app:layout_constraintTop_toTopOf="@+id/plusmenu5" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/minusmenu5"
+        app:layout_constraintStart_toEndOf="@+id/minusmenu5"
+        app:layout_constraintTop_toTopOf="@+id/minusmenu5" />
 
     <TextView
         android:id="@+id/menu2price"
@@ -328,10 +309,9 @@
         android:fontFamily="@font/yangjin"
         android:text=" "
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/menu2"
-        app:layout_constraintEnd_toStartOf="@+id/plusmenu2"
-        app:layout_constraintStart_toEndOf="@+id/menu2"
-        app:layout_constraintTop_toTopOf="@+id/menu2" />
+        app:layout_constraintEnd_toEndOf="@+id/menu2"
+        app:layout_constraintStart_toStartOf="@+id/menu2"
+        app:layout_constraintTop_toBottomOf="@+id/menu2" />
 
     <TextView
         android:id="@+id/menu3price"
@@ -340,10 +320,9 @@
         android:fontFamily="@font/yangjin"
         android:text=" "
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/menu3"
-        app:layout_constraintEnd_toStartOf="@+id/plusmenu3"
-        app:layout_constraintStart_toEndOf="@+id/menu3"
-        app:layout_constraintTop_toTopOf="@+id/menu3" />
+        app:layout_constraintEnd_toEndOf="@+id/menu3"
+        app:layout_constraintStart_toStartOf="@+id/menu3"
+        app:layout_constraintTop_toBottomOf="@+id/menu3" />
 
     <TextView
         android:id="@+id/menu4price"
@@ -352,10 +331,9 @@
         android:fontFamily="@font/yangjin"
         android:text=" "
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/menu4"
-        app:layout_constraintEnd_toStartOf="@+id/plusmenu4"
-        app:layout_constraintStart_toEndOf="@+id/menu4"
-        app:layout_constraintTop_toTopOf="@+id/menu4" />
+        app:layout_constraintEnd_toEndOf="@+id/menu4"
+        app:layout_constraintStart_toStartOf="@+id/menu4"
+        app:layout_constraintTop_toBottomOf="@+id/menu4" />
 
     <TextView
         android:id="@+id/menu5price"
@@ -364,24 +342,23 @@
         android:fontFamily="@font/yangjin"
         android:text=" "
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/menu5"
-        app:layout_constraintEnd_toStartOf="@+id/plusmenu5"
-        app:layout_constraintStart_toEndOf="@+id/menu5"
-        app:layout_constraintTop_toTopOf="@+id/menu5" />
+        app:layout_constraintEnd_toEndOf="@+id/menu5"
+        app:layout_constraintStart_toStartOf="@+id/menu5"
+        app:layout_constraintTop_toBottomOf="@+id/menu5" />
 
     <TextView
         android:id="@+id/totalprice"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="100dp"
         android:fontFamily="@font/yangjin"
         android:gravity="center"
         android:text="0"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView9" />
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="@id/textView9"
+        tools:layout_editor_absoluteY="591dp" />
 
     <TextView
         android:id="@+id/textView9"
@@ -393,9 +370,9 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/order_button"
         app:layout_constraintEnd_toStartOf="@+id/totalprice"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/totalprice" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"
@@ -426,36 +403,41 @@
         android:id="@+id/pic2"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        app:layout_constraintBottom_toBottomOf="@+id/menu2"
-        app:layout_constraintEnd_toEndOf="@+id/menu2"
-        app:layout_constraintStart_toStartOf="@+id/menu2"
+        app:layout_constraintBottom_toTopOf="@+id/pic3"
+        app:layout_constraintEnd_toEndOf="@+id/pic1"
+        app:layout_constraintStart_toStartOf="@+id/pic1"
+        app:layout_constraintTop_toBottomOf="@+id/pic1"
         app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageView
         android:id="@+id/pic3"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        app:layout_constraintBottom_toBottomOf="@+id/menu3"
-        app:layout_constraintEnd_toEndOf="@+id/menu3"
-        app:layout_constraintStart_toStartOf="@+id/menu3"
+        app:layout_constraintBottom_toTopOf="@+id/pic4"
+        app:layout_constraintEnd_toEndOf="@+id/pic2"
+        app:layout_constraintStart_toStartOf="@+id/pic2"
+        app:layout_constraintTop_toBottomOf="@+id/pic2"
         app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageView
         android:id="@+id/pic4"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        app:layout_constraintBottom_toBottomOf="@+id/menu4"
-        app:layout_constraintEnd_toEndOf="@+id/menu4"
-        app:layout_constraintStart_toStartOf="@+id/menu4"
+        app:layout_constraintBottom_toTopOf="@+id/pic5"
+        app:layout_constraintEnd_toEndOf="@+id/pic3"
+        app:layout_constraintStart_toStartOf="@+id/pic3"
+        app:layout_constraintTop_toBottomOf="@+id/pic3"
         app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageView
         android:id="@+id/pic5"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        app:layout_constraintBottom_toBottomOf="@+id/menu5"
-        app:layout_constraintEnd_toEndOf="@+id/menu5"
-        app:layout_constraintStart_toStartOf="@+id/menu5"
+        android:layout_marginBottom="170dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/pic4"
+        app:layout_constraintStart_toStartOf="@+id/pic4"
+        app:layout_constraintTop_toBottomOf="@+id/pic4"
         app:srcCompat="@mipmap/ic_launcher" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

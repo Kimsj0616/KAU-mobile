@@ -28,6 +28,7 @@ class Order : AppCompatActivity()
     private var storageref = storage.getReferenceFromUrl("gs://monsterrat-ec078.appspot.com")
     private var pathReference : StorageReference = storageref.child("고구마치즈돈까스.jpg")
 
+    var count = 0
     var qttmenu1 = 0
     var qttmenu2 = 0
     var qttmenu3 = 0
@@ -35,7 +36,6 @@ class Order : AppCompatActivity()
     var qttmenu5 = 0
     var total_price = 0
     var tableNo: Int ?= 0
-    var pics : ArrayList<Bitmap> = ArrayList()
     var menus : ArrayList<String> = ArrayList()
     var prices : ArrayList<Int> = ArrayList()
 
@@ -62,8 +62,27 @@ class Order : AppCompatActivity()
                     item.getBytes(2048 * 4096).addOnSuccessListener  {
                         val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
                         var resizedbitmap = resizeBitmap(bitmap)
-                        pics.add(resizedbitmap)
-                        println("@@@@@@@@@@@@@@@ ${pics}")
+                        if (count == 0){
+                            pic1.setImageBitmap(resizedbitmap)
+                            count++
+                        }
+                        else if (count == 1){
+                            pic2.setImageBitmap(resizedbitmap)
+                            count++
+                        }
+                        else if (count == 2){
+                            pic3.setImageBitmap(resizedbitmap)
+                            count++
+                        }
+                        else if (count == 3){
+                            pic4.setImageBitmap(resizedbitmap)
+                            count++
+                        }
+                        else if (count == 4){
+                            pic5.setImageBitmap(resizedbitmap)
+                            count++
+                        }
+                        println("@@@@@@@@@@@@@@@@@@@@@@${resizedbitmap}")
                     }.addOnFailureListener {
                         println("storage-read-fail-each")
                     }
@@ -78,12 +97,6 @@ class Order : AppCompatActivity()
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_order)
-
-        /*pic1.setImageBitmap(pics[0])
-        pic2.setImageBitmap(pics[1])
-        pic3.setImageBitmap(pics[2])
-        pic4.setImageBitmap(pics[3])
-        pic5.setImageBitmap(pics[4])*/
 
         var tableNumber : TextView = findViewById(R.id.TableNo)
 
