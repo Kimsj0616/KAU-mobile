@@ -244,34 +244,5 @@ class Order : AppCompatActivity()
 
             startActivity(orderIntent)
         }
-
-        try {
-            //로컬에 저장할 폴더의 위치
-            val path = File("Folder path")
-
-            //저장하는 파일의 이름
-            val file = File(path, "File name")
-            try {
-                if (!path.exists()) {
-                    //저장할 폴더가 없으면 생성
-                    path.mkdirs()
-                }
-                file.createNewFile()
-
-                //파일을 다운로드하는 Task 생성, 비동기식으로 진행
-                val fileDownloadTask = pathReference.getFile(file)
-                fileDownloadTask.addOnSuccessListener(OnSuccessListener<FileDownloadTask.TaskSnapshot> {
-                    Toast.makeText(this,"저장이 성공하였습니다.",Toast.LENGTH_LONG)
-                }).addOnFailureListener(OnFailureListener {
-                    //다운로드 실패 후 할 일
-                }).addOnProgressListener(
-                    //진행상태 표시
-                    OnProgressListener<FileDownloadTask.TaskSnapshot> { })
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
     }
 }
