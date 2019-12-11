@@ -54,15 +54,14 @@
 
     <TextView
         android:id="@+id/name1"
-        android:layout_width="150dp"
+        android:layout_width="200dp"
         android:layout_height="40dp"
-        android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
+        android:fontFamily="@font/yangjin"
         android:gravity="center"
         android:text=" "
-        android:textSize="25dp"
         android:textColor="#FFFFFF"
-        android:fontFamily="@font/yangjin"
+        android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableno" />
 
