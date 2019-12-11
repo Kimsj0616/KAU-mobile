@@ -124,10 +124,17 @@ class ResultOrder : AppCompatActivity(){
                 //count=0
                 val order = OrderDB(tablenumber,menuqtt1,menuqtt2,menuqtt3,menuqtt4,menuqtt5)
 
-                ref.child("table list").child("${count}").setValue(order.map1)
+                if( ref.child("tablecount").child("table list").child("${tablenumber}").key.toString().toInt() == tablenumber ) {
+                    val tmp = OrderDB(tablenumber,menuqtt1,menuqtt2,menuqtt3,menuqtt4,menuqtt5)
 
-                ref.child("tablecount").setValue(p0.child("tablecount").value.toString().toInt()+1)
+                    ref.child("tablecount").child("table list").child("${tablenumber}").removeValue()
+                    ref.child("table list").child("${tablenumber}").setValue(tmp.map1)
 
+
+                }
+                else{
+                    ref.child("table list").child("${tablenumber}").setValue(order.map1)
+                }
             }
         })
     }
