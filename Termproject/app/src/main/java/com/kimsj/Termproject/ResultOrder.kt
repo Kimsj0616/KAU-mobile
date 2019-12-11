@@ -2,9 +2,6 @@ package com.kimsj.Termproject
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
@@ -20,7 +17,6 @@ class ResultOrder : AppCompatActivity(){
     private var pathReference : StorageReference = storageref.child("images/image.jpg")
 
     var tablenumber :Int? = null
-    var pay : Button?=null
     var menuqtt1 :Int? = 0
     var menuqtt2 :Int? = 0
     var menuqtt3 :Int? = 0
@@ -37,25 +33,6 @@ class ResultOrder : AppCompatActivity(){
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_resultorder)
-
-        pay = findViewById(R.id.pay)
-        pay!!.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(p0: View?) {
-
-                var payintent : Intent = Intent(this@ResultOrder,PayActivity::class.java)
-                payintent.putExtra("totalprice", totalprice)
-                payintent.putExtra("tableNo", tablenumber)
-                payintent.putExtra("qttmenu1", menuqtt1)
-                payintent.putExtra("qttmenu2", menuqtt2)
-                payintent.putExtra("qttmenu3", menuqtt3)
-                payintent.putExtra("qttmenu4", menuqtt4)
-                payintent.putExtra("qttmenu5", menuqtt5)
-
-
-                startActivity(payintent)
-
-            }
-        })
 
         ref.child("menulist").child("돈까스").setValue("7000")
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -120,6 +97,19 @@ class ResultOrder : AppCompatActivity(){
             add_intent.putExtra("total_price", totalprice)
 
             startActivity(add_intent)
+        }
+
+        pay.setOnClickListener {
+            var payintent : Intent = Intent(this@ResultOrder,PayActivity::class.java)
+            payintent.putExtra("total_price", totalprice)
+            payintent.putExtra("tableNo", tablenumber)
+            payintent.putExtra("qttmenu1", menuqtt1)
+            payintent.putExtra("qttmenu2", menuqtt2)
+            payintent.putExtra("qttmenu3", menuqtt3)
+            payintent.putExtra("qttmenu4", menuqtt4)
+            payintent.putExtra("qttmenu5", menuqtt5)
+
+            startActivity(payintent)
         }
 
         ref.addListenerForSingleValueEvent(object : ValueEventListener {

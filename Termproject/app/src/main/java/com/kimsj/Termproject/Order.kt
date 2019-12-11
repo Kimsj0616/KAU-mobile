@@ -7,16 +7,10 @@ import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.database.*
-import com.google.firebase.storage.FileDownloadTask
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.OnProgressListener
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_order.*
-import java.io.File
-import java.io.IOException
 
 
 class Order : AppCompatActivity()
@@ -28,7 +22,6 @@ class Order : AppCompatActivity()
     private var storageref = storage.getReferenceFromUrl("gs://monsterrat-ec078.appspot.com")
     private var pathReference : StorageReference = storageref.child("고구마치즈돈까스.jpg")
 
-    var count = 0
     var qttmenu1 = 0
     var qttmenu2 = 0
     var qttmenu3 = 0
@@ -62,27 +55,21 @@ class Order : AppCompatActivity()
                     item.getBytes(2048 * 4096).addOnSuccessListener  {
                         val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
                         var resizedbitmap = resizeBitmap(bitmap)
-                        if (count == 0){
+                        if (item.name == "고구마치즈돈까스.jpg"){
                             pic1.setImageBitmap(resizedbitmap)
-                            count++
                         }
-                        else if (count == 1){
+                        else if (item.name == "돈까스.jpg"){
                             pic2.setImageBitmap(resizedbitmap)
-                            count++
                         }
-                        else if (count == 2){
+                        else if (item.name == "스파게티.jpg"){
                             pic3.setImageBitmap(resizedbitmap)
-                            count++
                         }
-                        else if (count == 3){
+                        else if (item.name == "치즈돈까스.jpg"){
                             pic4.setImageBitmap(resizedbitmap)
-                            count++
                         }
-                        else if (count == 4){
+                        else if (item.name == "콜라.jpg"){
                             pic5.setImageBitmap(resizedbitmap)
-                            count++
                         }
-                        println("@@@@@@@@@@@@@@@@@@@@@@${resizedbitmap}")
                     }.addOnFailureListener {
                         println("storage-read-fail-each")
                     }

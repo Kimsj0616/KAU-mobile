@@ -46,7 +46,6 @@ class Additional : AppCompatActivity() {
     private var storageref = storage.getReferenceFromUrl("gs://monsterrat-ec078.appspot.com")
     private var pathReference : StorageReference = storageref.child("고구마치즈돈까스.jpg")
 
-    var count = 0
     var tablenumber : Int = 0
     var pre_qtt1 = 0
     var pre_qtt2 = 0
@@ -84,25 +83,20 @@ class Additional : AppCompatActivity() {
                         val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
                         var resizedbitmap = resizeBitmap(bitmap)
                         println("######################${resizedbitmap}")
-                        if (count == 0){
-                            add_pic1.setImageBitmap(resizedbitmap)
-                            count++
+                        if (item.name == "고구마치즈돈까스.jpg"){
+                            pic1.setImageBitmap(resizedbitmap)
                         }
-                        else if (count == 1){
-                            add_pic2.setImageBitmap(resizedbitmap)
-                            count++
+                        else if (item.name == "돈까스.jpg"){
+                            pic2.setImageBitmap(resizedbitmap)
                         }
-                        else if (count == 2){
-                            add_pic3.setImageBitmap(resizedbitmap)
-                            count++
+                        else if (item.name == "스파게티.jpg"){
+                            pic3.setImageBitmap(resizedbitmap)
                         }
-                        else if (count == 3){
-                            add_pic4.setImageBitmap(resizedbitmap)
-                            count++
+                        else if (item.name == "치즈돈까스.jpg"){
+                            pic4.setImageBitmap(resizedbitmap)
                         }
-                        else if (count == 4){
-                            add_pic5.setImageBitmap(resizedbitmap)
-                            count++
+                        else if (item.name == "콜라.jpg"){
+                            pic5.setImageBitmap(resizedbitmap)
                         }
                     }
                         .addOnFailureListener {

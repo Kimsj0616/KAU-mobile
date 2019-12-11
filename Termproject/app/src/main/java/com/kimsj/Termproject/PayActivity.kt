@@ -9,9 +9,9 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.google.firebase.database.*
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_pay.*
-import kotlinx.android.synthetic.main.activity_resultorder.*
 import kr.co.bootpay.*
 import kr.co.bootpay.enums.Method
 import kr.co.bootpay.enums.PG

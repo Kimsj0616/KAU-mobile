@@ -1,16 +1,9 @@
 package com.kimsj.Termproject
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_resultorder.*
-import kr.co.bootpay.BootpayAnalytics
 
 class Bill : AppCompatActivity(){
 
@@ -83,7 +76,6 @@ class Bill : AppCompatActivity(){
         }
         if (intent.hasExtra("total_price")) {
             totalprice = intent.getIntExtra("total_price",0)
-            println("###########################${totalprice}")
             total.text = totalprice.toString()
         }
 
