@@ -10,53 +10,30 @@ import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_resultorder.*
+import kr.co.bootpay.BootpayAnalytics
 
-class ResultOrder : AppCompatActivity(){
+class Bill : AppCompatActivity(){
 
     private var firebasedb : FirebaseDatabase = FirebaseDatabase.getInstance()
     private var ref : DatabaseReference = firebasedb.reference
-    private var storage : FirebaseStorage = FirebaseStorage.getInstance("gs://monsterrat-ec078.appspot.com/")
-    private var storageref : StorageReference = storage.getReference()
-    private var pathReference : StorageReference = storageref.child("images/image.jpg")
 
     var tablenumber :Int? = null
-    var pay : Button?=null
     var menuqtt1 :Int? = 0
     var menuqtt2 :Int? = 0
     var menuqtt3 :Int? = 0
     var menuqtt4 :Int? = 0
     var menuqtt5 :Int? = 0
     var totalprice :Int? = 0
-    var count : Int? = null
+
     var menus : ArrayList<String> = ArrayList()
     var prices : ArrayList<Int> = ArrayList()
 
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        setContentView(R.layout.activity_resultorder)
-
-        pay = findViewById(R.id.pay)
-        pay!!.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(p0: View?) {
-
-                var payintent : Intent = Intent(this@ResultOrder,PayActivity::class.java)
-                payintent.putExtra("totalprice", totalprice)
-                payintent.putExtra("tableNo", tablenumber)
-                payintent.putExtra("qttmenu1", menuqtt1)
-                payintent.putExtra("qttmenu2", menuqtt2)
-                payintent.putExtra("qttmenu3", menuqtt3)
-                payintent.putExtra("qttmenu4", menuqtt4)
-                payintent.putExtra("qttmenu5", menuqtt5)
-
-
-                startActivity(payintent)
-
-            }
-        })
-
+        setContentView(R.layout.activity_bill)
         ref.child("menulist").child("돈까스").setValue("7000")
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -78,6 +55,7 @@ class ResultOrder : AppCompatActivity(){
                 name5.text = menus[4]
             }
         })
+
 
         if (intent.hasExtra("tableNo")) {
             tablenumber = intent.getIntExtra("tableNo", 0)
@@ -105,40 +83,13 @@ class ResultOrder : AppCompatActivity(){
         }
         if (intent.hasExtra("total_price")) {
             totalprice = intent.getIntExtra("total_price",0)
+            println("###########################${totalprice}")
             total.text = totalprice.toString()
         }
 
-        addbutton.setOnClickListener {
-            val add_intent = Intent(this, Additional::class.java)
-
-            add_intent.putExtra("tableNo", tablenumber)
-            add_intent.putExtra("menuqtt1", menuqtt1)
-            add_intent.putExtra("menuqtt2", menuqtt2)
-            add_intent.putExtra("menuqtt3", menuqtt3)
-            add_intent.putExtra("menuqtt4", menuqtt4)
-            add_intent.putExtra("menuqtt5", menuqtt5)
-            add_intent.putExtra("total_price", totalprice)
-
-            startActivity(add_intent)
-        }
-
-        ref.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onCancelled(p0: DatabaseError) {
-
-
-            }
-
-            override fun onDataChange(p0: DataSnapshot) {
-
-                count = p0.child("tablecount").value.toString().toInt()
-                //count=0
-                val order = OrderDB(tablenumber,menuqtt1,menuqtt2,menuqtt3,menuqtt4,menuqtt5)
-
-                ref.child("table list").child("${count}").setValue(order.map1)
-
-                ref.child("tablecount").setValue(p0.child("tablecount").value.toString().toInt()+1)
-
-            }
-        })
     }
+
+
+
+
 }
