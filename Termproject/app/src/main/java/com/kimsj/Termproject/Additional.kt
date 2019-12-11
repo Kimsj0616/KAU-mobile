@@ -84,19 +84,19 @@ class Additional : AppCompatActivity() {
                         var resizedbitmap = resizeBitmap(bitmap)
                         println("######################${resizedbitmap}")
                         if (item.name == "고구마치즈돈까스.jpg"){
-                            pic1.setImageBitmap(resizedbitmap)
+                            add_pic1.setImageBitmap(resizedbitmap)
                         }
                         else if (item.name == "돈까스.jpg"){
-                            pic2.setImageBitmap(resizedbitmap)
+                            add_pic2.setImageBitmap(resizedbitmap)
                         }
                         else if (item.name == "스파게티.jpg"){
-                            pic3.setImageBitmap(resizedbitmap)
+                            add_pic3.setImageBitmap(resizedbitmap)
                         }
                         else if (item.name == "치즈돈까스.jpg"){
-                            pic4.setImageBitmap(resizedbitmap)
+                            add_pic4.setImageBitmap(resizedbitmap)
                         }
                         else if (item.name == "콜라.jpg"){
-                            pic5.setImageBitmap(resizedbitmap)
+                            add_pic5.setImageBitmap(resizedbitmap)
                         }
                     }
                         .addOnFailureListener {
