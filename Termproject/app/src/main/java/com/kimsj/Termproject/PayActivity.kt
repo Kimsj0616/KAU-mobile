@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -33,13 +32,9 @@ class PayActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener
     var price = 0
     var stuck = 10;
     var re: SwipeRefreshLayout?=null;
-    var b:Button?=null;
 
     override fun onRefresh() {
-        b!!.setText("바뀌었다");
-
         re!!.setRefreshing(false);
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +42,6 @@ class PayActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener
         setContentView(R.layout.activity_pay);
         re = findViewById(R.id.Refresh);
         re!!.setOnRefreshListener(this);
-        b=findViewById(R.id.button1);
         // 초기설정 - 해당 프로젝트(안드로이드)의 application id 값을 설정합니다. 결제와 통계를 위해 꼭 필요합니다.
         BootpayAnalytics.init(this, "5cbc1852b6d49c0a8f7825a2")
 
@@ -80,7 +74,7 @@ class PayActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener
             totalprice = intent.getIntExtra("total_price",0)
         }
 
-        button2.setOnClickListener(object : View.OnClickListener {
+        card_btn.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
 
                 var intent : Intent = Intent(this@PayActivity,Bill::class.java)
@@ -108,7 +102,7 @@ class PayActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener
         when(v.getId())
         {
 
-            R.id.button1->
+            R.id.mobile_btn->
             {
                 m=Method.CARD;
 

@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_order.*
 
 
@@ -17,10 +16,8 @@ class Order : AppCompatActivity()
 {
     private var firebasedb : FirebaseDatabase = FirebaseDatabase.getInstance()
     private var ref : DatabaseReference = firebasedb.reference
-    private var menuref : DatabaseReference = firebasedb.getReference("menulist")
     private var storage  = FirebaseStorage.getInstance()
     private var storageref = storage.getReferenceFromUrl("gs://monsterrat-ec078.appspot.com")
-    private var pathReference : StorageReference = storageref.child("고구마치즈돈까스.jpg")
 
     var qttmenu1 = 0
     var qttmenu2 = 0
@@ -87,7 +84,6 @@ class Order : AppCompatActivity()
 
         var tableNumber : TextView = findViewById(R.id.TableNo)
 
-        ref.child("menulist").child("돈까스").setValue("7000")
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
 
