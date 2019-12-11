@@ -119,9 +119,6 @@ class ResultOrder : AppCompatActivity(){
             }
 
             override fun onDataChange(p0: DataSnapshot) {
-
-                count = p0.child("tablecount").value.toString().toInt()
-                //count=0
                 val order = OrderDB(tablenumber,menuqtt1,menuqtt2,menuqtt3,menuqtt4,menuqtt5)
 
                 if( ref.child("tablecount").child("table list").child("${tablenumber}").key.toString().toInt() == tablenumber ) {
@@ -129,8 +126,6 @@ class ResultOrder : AppCompatActivity(){
 
                     ref.child("tablecount").child("table list").child("${tablenumber}").removeValue()
                     ref.child("table list").child("${tablenumber}").setValue(tmp.map1)
-
-
                 }
                 else{
                     ref.child("table list").child("${tablenumber}").setValue(order.map1)
