@@ -84,9 +84,6 @@ class Order : AppCompatActivity()
 
         var tableNumber : TextView = findViewById(R.id.TableNo)
 
-        onBackPressed()
-
-
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
 
