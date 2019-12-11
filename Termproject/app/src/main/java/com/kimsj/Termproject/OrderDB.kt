@@ -14,9 +14,9 @@ class OrderDB(var tablenumber: Int?,
               var qttmenu5:Int?) : Parcelable {
 
     val map1 = mapOf("Table number" to tablenumber,
-        "돈까스" to qttmenu1,
-        "치즈돈까스" to qttmenu2,
-        "고구마치즈돈까스" to qttmenu3,
-        "스파게티" to qttmenu4,
+        "고구마치즈돈까스" to qttmenu1,
+        "돈까스" to qttmenu2,
+        "스파게티" to qttmenu3,
+        "치즈돈까스" to qttmenu4,
         "콜라" to qttmenu5)
 }
