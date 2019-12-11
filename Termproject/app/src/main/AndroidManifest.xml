@@ -24,9 +24,9 @@
         <activity android:name = "com.kimsj.Termproject.ResultOrder"/>
         <activity android:name= "com.kimsj.Termproject.Additional"/>
         <activity android:name= "com.kimsj.Termproject.Bill"/>
-        <activity android:name = "com.kimsj.Termproject.Order"/>
+        <activity android:name = "com.kimsj.Termproject.Order">
+        </activity>
         <activity android:name="com.kimsj.Termproject.MainActivity">
-
         </activity>
         <activity android:name = "com.kimsj.Termproject.ScanQR"
             android:screenOrientation = "fullSensor"
