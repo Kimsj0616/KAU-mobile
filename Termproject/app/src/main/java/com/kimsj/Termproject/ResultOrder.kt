@@ -8,25 +8,25 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_resultorder.*
 
-class ResultOrder : AppCompatActivity(){
+class ResultOrder : AppCompatActivity() {
 
-    private var firebasedb : FirebaseDatabase = FirebaseDatabase.getInstance()
-    private var ref : DatabaseReference = firebasedb.reference
-    private var storage : FirebaseStorage = FirebaseStorage.getInstance("gs://monsterrat-ec078.appspot.com/")
-    private var storageref : StorageReference = storage.getReference()
-    private var pathReference : StorageReference = storageref.child("images/image.jpg")
+    private var firebasedb: FirebaseDatabase = FirebaseDatabase.getInstance()
+    private var ref: DatabaseReference = firebasedb.reference
+    private var storage: FirebaseStorage =
+        FirebaseStorage.getInstance("gs://monsterrat-ec078.appspot.com/")
+    private var storageref: StorageReference = storage.getReference()
+    private var pathReference: StorageReference = storageref.child("images/image.jpg")
 
-    var tablenumber :Int? = null
-    var menuqtt1 :Int? = 0
-    var menuqtt2 :Int? = 0
-    var menuqtt3 :Int? = 0
-    var menuqtt4 :Int? = 0
-    var menuqtt5 :Int? = 0
-    var totalprice :Int? = 0
-    var count : Int? = null
-    var menus : ArrayList<String> = ArrayList()
-    var prices : ArrayList<Int> = ArrayList()
-
+    var tablenumber: Int? = null
+    var menuqtt1: Int? = 0
+    var menuqtt2: Int? = 0
+    var menuqtt3: Int? = 0
+    var menuqtt4: Int? = 0
+    var menuqtt5: Int? = 0
+    var totalprice: Int? = 0
+    var count: Int? = null
+    var menus: ArrayList<String> = ArrayList()
+    var prices: ArrayList<Int> = ArrayList()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,10 +40,10 @@ class ResultOrder : AppCompatActivity(){
 
 
             }
+
             override fun onDataChange(p0: DataSnapshot) {
 
-                for(i in p0.child("menulist").children)
-                {
+                for (i in p0.child("menulist").children) {
                     menus.add(i.key.toString())
                     prices.add(i.getValue(true).toString().toInt())
                 }
@@ -61,27 +61,27 @@ class ResultOrder : AppCompatActivity(){
             tableno.text = "TABLE ${tablenumber}"
         }
         if (intent.hasExtra("qttmenu1")) {
-            menuqtt1 = intent.getIntExtra("qttmenu1",0)
+            menuqtt1 = intent.getIntExtra("qttmenu1", 0)
             qtt1.text = menuqtt1.toString()
         }
         if (intent.hasExtra("qttmenu2")) {
-            menuqtt2 = intent.getIntExtra("qttmenu2",0)
+            menuqtt2 = intent.getIntExtra("qttmenu2", 0)
             qtt2.text = menuqtt2.toString()
         }
         if (intent.hasExtra("qttmenu3")) {
-            menuqtt3 = intent.getIntExtra("qttmenu3",0)
+            menuqtt3 = intent.getIntExtra("qttmenu3", 0)
             qtt3.text = menuqtt3.toString()
         }
         if (intent.hasExtra("qttmenu4")) {
-            menuqtt4 = intent.getIntExtra("qttmenu4",0)
+            menuqtt4 = intent.getIntExtra("qttmenu4", 0)
             qtt4.text = menuqtt4.toString()
         }
         if (intent.hasExtra("qttmenu5")) {
-            menuqtt5 = intent.getIntExtra("qttmenu5",0)
+            menuqtt5 = intent.getIntExtra("qttmenu5", 0)
             qtt5.text = menuqtt5.toString()
         }
         if (intent.hasExtra("total_price")) {
-            totalprice = intent.getIntExtra("total_price",0)
+            totalprice = intent.getIntExtra("total_price", 0)
             total.text = totalprice.toString()
         }
 
@@ -100,7 +100,7 @@ class ResultOrder : AppCompatActivity(){
         }
 
         pay.setOnClickListener {
-            var payintent : Intent = Intent(this@ResultOrder,PayActivity::class.java)
+            var payintent: Intent = Intent(this@ResultOrder, PayActivity::class.java)
             payintent.putExtra("total_price", totalprice)
             payintent.putExtra("tableNo", tablenumber)
             payintent.putExtra("qttmenu1", menuqtt1)
@@ -119,15 +119,15 @@ class ResultOrder : AppCompatActivity(){
             }
 
             override fun onDataChange(p0: DataSnapshot) {
-                val order = OrderDB(tablenumber,menuqtt1,menuqtt2,menuqtt3,menuqtt4,menuqtt5)
+                val order = OrderDB(tablenumber, menuqtt1, menuqtt2, menuqtt3, menuqtt4, menuqtt5)
 
-                if( ref.child("tablecount").child("table list").child("${tablenumber}").key.toString().toInt() == tablenumber ) {
-                    val tmp = OrderDB(tablenumber,menuqtt1,menuqtt2,menuqtt3,menuqtt4,menuqtt5)
+                if (ref.child("tablecount").child("table list").child("${tablenumber}").key.toString().toInt() == tablenumber) {
+                    val tmp = OrderDB(tablenumber, menuqtt1, menuqtt2, menuqtt3, menuqtt4, menuqtt5)
 
-                    ref.child("tablecount").child("table list").child("${tablenumber}").removeValue()
+                    ref.child("tablecount").child("table list").child("${tablenumber}")
+                        .removeValue()
                     ref.child("table list").child("${tablenumber}").setValue(tmp.map1)
-                }
-                else{
+                } else {
                     ref.child("table list").child("${tablenumber}").setValue(order.map1)
                 }
             }

@@ -8,10 +8,11 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 
-class ListAdapter(val context : Context , val menus : ArrayList<String>, val prices : ArrayList<Int>) : BaseAdapter(){
+class ListAdapter(val context: Context, val menus: ArrayList<String>, val prices: ArrayList<Int>) :
+    BaseAdapter() {
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        val view : View = LayoutInflater.from(context).inflate(R.layout.activity_item, null)
+        val view: View = LayoutInflater.from(context).inflate(R.layout.activity_item, null)
 
         val menupic = view.findViewById<ImageView>(R.id.imageView)
         val menuname = view.findViewById<TextView>(R.id.menuname)
