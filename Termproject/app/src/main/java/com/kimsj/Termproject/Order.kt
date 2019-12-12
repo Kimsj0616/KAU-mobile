@@ -12,10 +12,11 @@ import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_order.*
 
 
-class Order : AppCompatActivity() {
-    private var firebasedb: FirebaseDatabase = FirebaseDatabase.getInstance()
-    private var ref: DatabaseReference = firebasedb.reference
-    private var storage = FirebaseStorage.getInstance()
+class Order : AppCompatActivity()
+{
+    private var firebasedb : FirebaseDatabase = FirebaseDatabase.getInstance()
+    private var ref : DatabaseReference = firebasedb.reference
+    private var storage  = FirebaseStorage.getInstance()
     private var storageref = storage.getReferenceFromUrl("gs://monsterrat-ec078.appspot.com")
 
     var qttmenu1 = 0
@@ -24,13 +25,13 @@ class Order : AppCompatActivity() {
     var qttmenu4 = 0
     var qttmenu5 = 0
     var total_price = 0
-    var tableNo: Int? = 0
-    var menus: ArrayList<String> = ArrayList()
-    var prices: ArrayList<Int> = ArrayList()
+    var tableNo: Int ?= 0
+    var menus : ArrayList<String> = ArrayList()
+    var prices : ArrayList<Int> = ArrayList()
 
     private fun resizeBitmap(bitmap: Bitmap): Bitmap {
-        var w: Int = bitmap.width
-        var h: Int = bitmap.height
+        var w : Int = bitmap.width
+        var h : Int = bitmap.height
         //println("w: ${w}, h: ${h}")
 
         h = w
@@ -44,22 +45,26 @@ class Order : AppCompatActivity() {
         )
     }
 
-    fun getlist() {
+    fun getlist(){
         storageref.listAll()
             .addOnSuccessListener { listResult ->
                 listResult.items.forEach { item ->
-                    item.getBytes(2048 * 4096).addOnSuccessListener {
+                    item.getBytes(2048 * 4096).addOnSuccessListener  {
                         val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
                         var resizedbitmap = resizeBitmap(bitmap)
-                        if (item.name == "고구마치즈돈까스.jpg") {
+                        if (item.name == "고구마치즈돈까스.jpg"){
                             pic1.setImageBitmap(resizedbitmap)
-                        } else if (item.name == "돈까스.jpg") {
+                        }
+                        else if (item.name == "돈까스.jpg"){
                             pic2.setImageBitmap(resizedbitmap)
-                        } else if (item.name == "스파게티.jpg") {
+                        }
+                        else if (item.name == "스파게티.jpg"){
                             pic3.setImageBitmap(resizedbitmap)
-                        } else if (item.name == "치즈돈까스.jpg") {
+                        }
+                        else if (item.name == "치즈돈까스.jpg"){
                             pic4.setImageBitmap(resizedbitmap)
-                        } else if (item.name == "콜라.jpg") {
+                        }
+                        else if (item.name == "콜라.jpg"){
                             pic5.setImageBitmap(resizedbitmap)
                         }
                     }.addOnFailureListener {
@@ -77,17 +82,17 @@ class Order : AppCompatActivity() {
 
         setContentView(R.layout.activity_order)
 
-        var tableNumber: TextView = findViewById(R.id.TableNo)
+        var tableNumber : TextView = findViewById(R.id.TableNo)
 
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
 
 
             }
-
             override fun onDataChange(p0: DataSnapshot) {
 
-                for (i in p0.child("menulist").children) {
+                for(i in p0.child("menulist").children)
+                {
                     menus.add(i.key.toString())
                     prices.add(i.getValue(true).toString().toInt())
                 }
@@ -150,9 +155,10 @@ class Order : AppCompatActivity() {
         }
 
         minusmenu1.setOnClickListener {
-            if (qttmenu1 == 0) {
+            if(qttmenu1 == 0){
                 Toast.makeText(this@Order, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG).show()
-            } else {
+            }
+            else{
                 qttmenu1--
                 total_price -= menu1price.text.toString().toInt()
                 totalprice.text = total_price.toString()
@@ -161,9 +167,10 @@ class Order : AppCompatActivity() {
         }
 
         minusmenu2.setOnClickListener {
-            if (qttmenu2 == 0) {
+            if(qttmenu2 == 0){
                 Toast.makeText(this@Order, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG).show()
-            } else {
+            }
+            else{
                 qttmenu2--
                 total_price -= menu2price.text.toString().toInt()
                 totalprice.text = total_price.toString()
@@ -172,9 +179,10 @@ class Order : AppCompatActivity() {
         }
 
         minusmenu3.setOnClickListener {
-            if (qttmenu3 == 0) {
+            if(qttmenu3 == 0){
                 Toast.makeText(this@Order, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG).show()
-            } else {
+            }
+            else{
                 qttmenu3--
                 total_price -= menu3price.text.toString().toInt()
                 totalprice.text = total_price.toString()
@@ -183,9 +191,10 @@ class Order : AppCompatActivity() {
         }
 
         minusmenu4.setOnClickListener {
-            if (qttmenu4 == 0) {
+            if(qttmenu4 == 0){
                 Toast.makeText(this@Order, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG).show()
-            } else {
+            }
+            else{
                 qttmenu4--
                 total_price -= menu4price.text.toString().toInt()
                 totalprice.text = total_price.toString()
@@ -194,9 +203,10 @@ class Order : AppCompatActivity() {
         }
 
         minusmenu5.setOnClickListener {
-            if (qttmenu5 == 0) {
+            if(qttmenu5 == 0){
                 Toast.makeText(this@Order, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG).show()
-            } else {
+            }
+            else{
                 qttmenu5--
                 total_price -= menu5price.text.toString().toInt()
                 totalprice.text = total_price.toString()

@@ -13,7 +13,8 @@ class SplashActivity : AppCompatActivity() {
             val splashintent = Intent(this, MainActivity::class.java)
             startActivity(splashintent)
             finish()
-        } catch (e: Exception) {
+        }
+        catch(e : Exception){
             return;
         }
     }

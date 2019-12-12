@@ -39,13 +39,14 @@ import kotlinx.android.synthetic.main.activity_order.menu5
 import kotlinx.android.synthetic.main.activity_order.menu5price
 
 class Additional : AppCompatActivity() {
-    private var firebasedb: FirebaseDatabase = FirebaseDatabase.getInstance()
-    private var ref: DatabaseReference = firebasedb.reference
-
-    private var storage = FirebaseStorage.getInstance()
+    private var firebasedb : FirebaseDatabase = FirebaseDatabase.getInstance()
+    private var ref : DatabaseReference = firebasedb.reference
+    private var menuref : DatabaseReference = firebasedb.getReference("menulist")
+    private var storage  = FirebaseStorage.getInstance()
     private var storageref = storage.getReferenceFromUrl("gs://monsterrat-ec078.appspot.com")
+    private var pathReference : StorageReference = storageref.child("고구마치즈돈까스.jpg")
 
-    var tablenumber: Int = 0
+    var tablenumber : Int = 0
     var pre_qtt1 = 0
     var pre_qtt2 = 0
     var pre_qtt3 = 0
@@ -57,13 +58,13 @@ class Additional : AppCompatActivity() {
     var add_qttmenu4 = 0
     var add_qttmenu5 = 0
     var pre_price = 0
-    var add_price: Int = 0
-    var menus: ArrayList<String> = ArrayList()
-    var prices: ArrayList<Int> = ArrayList()
+    var add_price : Int = 0
+    var menus : ArrayList<String> = ArrayList()
+    var prices : ArrayList<Int> = ArrayList()
 
     private fun resizeBitmap(bitmap: Bitmap): Bitmap {
-        var w: Int = bitmap.width
-        var h: Int = bitmap.height
+        var w : Int = bitmap.width
+        var h : Int = bitmap.height
 
         h = w
         return Bitmap.createScaledBitmap(
@@ -74,23 +75,27 @@ class Additional : AppCompatActivity() {
         )
     }
 
-    fun getlist() {
+    fun getlist(){
         storageref.listAll()
             .addOnSuccessListener { listResult ->
                 listResult.items.forEach { item ->
-                    item.getBytes(2048 * 4096).addOnSuccessListener {
+                    item.getBytes(2048 * 4096).addOnSuccessListener  {
                         val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
                         var resizedbitmap = resizeBitmap(bitmap)
                         println("######################${resizedbitmap}")
-                        if (item.name == "고구마치즈돈까스.jpg") {
+                        if (item.name == "고구마치즈돈까스.jpg"){
                             add_pic1.setImageBitmap(resizedbitmap)
-                        } else if (item.name == "돈까스.jpg") {
+                        }
+                        else if (item.name == "돈까스.jpg"){
                             add_pic2.setImageBitmap(resizedbitmap)
-                        } else if (item.name == "스파게티.jpg") {
+                        }
+                        else if (item.name == "스파게티.jpg"){
                             add_pic3.setImageBitmap(resizedbitmap)
-                        } else if (item.name == "치즈돈까스.jpg") {
+                        }
+                        else if (item.name == "치즈돈까스.jpg"){
                             add_pic4.setImageBitmap(resizedbitmap)
-                        } else if (item.name == "콜라.jpg") {
+                        }
+                        else if (item.name == "콜라.jpg"){
                             add_pic5.setImageBitmap(resizedbitmap)
                         }
                     }
@@ -117,10 +122,10 @@ class Additional : AppCompatActivity() {
 
 
             }
-
             override fun onDataChange(p0: DataSnapshot) {
 
-                for (i in p0.child("menulist").children) {
+                for(i in p0.child("menulist").children)
+                {
                     menus.add(i.key.toString())
                     prices.add(i.getValue(true).toString().toInt())
                 }
@@ -139,25 +144,25 @@ class Additional : AppCompatActivity() {
             }
         })
 
-        if (intent.hasExtra("tableNo")) {
+        if(intent.hasExtra("tableNo")){
             tablenumber = intent.getIntExtra("tableNo", 0)
         }
-        if (intent.hasExtra("menuqtt1")) {
+        if(intent.hasExtra("menuqtt1")){
             pre_qtt1 = intent.getIntExtra("menuqtt1", 0)
         }
-        if (intent.hasExtra("menuqtt2")) {
+        if(intent.hasExtra("menuqtt2")){
             pre_qtt2 = intent.getIntExtra("menuqtt2", 0)
         }
-        if (intent.hasExtra("menuqtt3")) {
+        if(intent.hasExtra("menuqtt3")){
             pre_qtt3 = intent.getIntExtra("menuqtt3", 0)
         }
-        if (intent.hasExtra("menuqtt4")) {
+        if(intent.hasExtra("menuqtt4")){
             pre_qtt4 = intent.getIntExtra("menuqtt4", 0)
         }
-        if (intent.hasExtra("menuqtt5")) {
+        if(intent.hasExtra("menuqtt5")){
             pre_qtt5 = intent.getIntExtra("menuqtt5", 0)
         }
-        if (intent.hasExtra("total_price")) {
+        if(intent.hasExtra("total_price")){
             pre_price = intent.getIntExtra("total_price", 0)
         }
 
@@ -207,10 +212,10 @@ class Additional : AppCompatActivity() {
         }
 
         minusmenu1.setOnClickListener {
-            if (add_qttmenu1 == 0) {
-                Toast.makeText(this@Additional, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG)
-                    .show()
-            } else {
+            if(add_qttmenu1 == 0){
+                Toast.makeText(this@Additional, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG).show()
+            }
+            else{
                 pre_qtt1--
                 add_qttmenu1--
                 pre_price -= menu1price.text.toString().toInt()
@@ -221,10 +226,10 @@ class Additional : AppCompatActivity() {
         }
 
         minusmenu2.setOnClickListener {
-            if (add_qttmenu2 == 0) {
-                Toast.makeText(this@Additional, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG)
-                    .show()
-            } else {
+            if(add_qttmenu2 == 0){
+                Toast.makeText(this@Additional, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG).show()
+            }
+            else{
                 pre_qtt2--
                 add_qttmenu2--
                 pre_price -= menu2price.text.toString().toInt()
@@ -235,10 +240,10 @@ class Additional : AppCompatActivity() {
         }
 
         minusmenu3.setOnClickListener {
-            if (add_qttmenu3 == 0) {
-                Toast.makeText(this@Additional, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG)
-                    .show()
-            } else {
+            if(add_qttmenu3 == 0){
+                Toast.makeText(this@Additional, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG).show()
+            }
+            else{
                 pre_qtt3--
                 add_qttmenu3--
                 pre_price -= menu3price.text.toString().toInt()
@@ -249,10 +254,10 @@ class Additional : AppCompatActivity() {
         }
 
         minusmenu4.setOnClickListener {
-            if (add_qttmenu4 == 0) {
-                Toast.makeText(this@Additional, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG)
-                    .show()
-            } else {
+            if(add_qttmenu4 == 0){
+                Toast.makeText(this@Additional, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG).show()
+            }
+            else{
                 pre_qtt4--
                 add_qttmenu4--
                 pre_price -= menu4price.text.toString().toInt()
@@ -263,10 +268,10 @@ class Additional : AppCompatActivity() {
         }
 
         minusmenu5.setOnClickListener {
-            if (add_qttmenu5 == 0) {
-                Toast.makeText(this@Additional, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG)
-                    .show()
-            } else {
+            if(add_qttmenu5 == 0){
+                Toast.makeText(this@Additional, "상품을 0개 이하로 주문하실 수 없습니다!!", Toast.LENGTH_LONG).show()
+            }
+            else{
                 pre_qtt5--
                 add_qttmenu5--
                 pre_price -= menu5price.text.toString().toInt()
