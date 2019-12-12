@@ -15,7 +15,6 @@ class ResultOrder : AppCompatActivity() {
     private var storage: FirebaseStorage =
         FirebaseStorage.getInstance("gs://monsterrat-ec078.appspot.com/")
     private var storageref: StorageReference = storage.getReference()
-    private var pathReference: StorageReference = storageref.child("images/image.jpg")
 
     var tablenumber: Int? = null
     var menuqtt1: Int? = 0
@@ -24,7 +23,7 @@ class ResultOrder : AppCompatActivity() {
     var menuqtt4: Int? = 0
     var menuqtt5: Int? = 0
     var totalprice: Int? = 0
-    var count: Int? = null
+
     var menus: ArrayList<String> = ArrayList()
     var prices: ArrayList<Int> = ArrayList()
 

@@ -41,10 +41,9 @@ import kotlinx.android.synthetic.main.activity_order.menu5price
 class Additional : AppCompatActivity() {
     private var firebasedb: FirebaseDatabase = FirebaseDatabase.getInstance()
     private var ref: DatabaseReference = firebasedb.reference
-    private var menuref: DatabaseReference = firebasedb.getReference("menulist")
+
     private var storage = FirebaseStorage.getInstance()
     private var storageref = storage.getReferenceFromUrl("gs://monsterrat-ec078.appspot.com")
-    private var pathReference: StorageReference = storageref.child("고구마치즈돈까스.jpg")
 
     var tablenumber: Int = 0
     var pre_qtt1 = 0
