@@ -5,23 +5,21 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_resultorder.*
 
-class Bill : AppCompatActivity(){
+class Bill : AppCompatActivity() {
 
-    private var firebasedb : FirebaseDatabase = FirebaseDatabase.getInstance()
-    private var ref : DatabaseReference = firebasedb.reference
+    private var firebasedb: FirebaseDatabase = FirebaseDatabase.getInstance()
+    private var ref: DatabaseReference = firebasedb.reference
 
-    var tablenumber :Int? = null
-    var menuqtt1 :Int? = 0
-    var menuqtt2 :Int? = 0
-    var menuqtt3 :Int? = 0
-    var menuqtt4 :Int? = 0
-    var menuqtt5 :Int? = 0
-    var totalprice :Int? = 0
+    var tablenumber: Int? = null
+    var menuqtt1: Int? = 0
+    var menuqtt2: Int? = 0
+    var menuqtt3: Int? = 0
+    var menuqtt4: Int? = 0
+    var menuqtt5: Int? = 0
+    var totalprice: Int? = 0
 
-    var menus : ArrayList<String> = ArrayList()
-    var prices : ArrayList<Int> = ArrayList()
-
-
+    var menus: ArrayList<String> = ArrayList()
+    var prices: ArrayList<Int> = ArrayList()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,10 +31,10 @@ class Bill : AppCompatActivity(){
 
 
             }
+
             override fun onDataChange(p0: DataSnapshot) {
 
-                for(i in p0.child("menulist").children)
-                {
+                for (i in p0.child("menulist").children) {
                     menus.add(i.key.toString())
                     prices.add(i.getValue(true).toString().toInt())
                 }
@@ -55,33 +53,31 @@ class Bill : AppCompatActivity(){
             tableno.text = "TABLE ${tablenumber}"
         }
         if (intent.hasExtra("qttmenu1")) {
-            menuqtt1 = intent.getIntExtra("qttmenu1",0)
+            menuqtt1 = intent.getIntExtra("qttmenu1", 0)
             qtt1.text = menuqtt1.toString()
         }
         if (intent.hasExtra("qttmenu2")) {
-            menuqtt2 = intent.getIntExtra("qttmenu2",0)
+            menuqtt2 = intent.getIntExtra("qttmenu2", 0)
             qtt2.text = menuqtt2.toString()
         }
         if (intent.hasExtra("qttmenu3")) {
-            menuqtt3 = intent.getIntExtra("qttmenu3",0)
+            menuqtt3 = intent.getIntExtra("qttmenu3", 0)
             qtt3.text = menuqtt3.toString()
         }
         if (intent.hasExtra("qttmenu4")) {
-            menuqtt4 = intent.getIntExtra("qttmenu4",0)
+            menuqtt4 = intent.getIntExtra("qttmenu4", 0)
             qtt4.text = menuqtt4.toString()
         }
         if (intent.hasExtra("qttmenu5")) {
-            menuqtt5 = intent.getIntExtra("qttmenu5",0)
+            menuqtt5 = intent.getIntExtra("qttmenu5", 0)
             qtt5.text = menuqtt5.toString()
         }
         if (intent.hasExtra("total_price")) {
-            totalprice = intent.getIntExtra("total_price",0)
+            totalprice = intent.getIntExtra("total_price", 0)
             total.text = totalprice.toString()
         }
 
     }
-
-
 
 
 }

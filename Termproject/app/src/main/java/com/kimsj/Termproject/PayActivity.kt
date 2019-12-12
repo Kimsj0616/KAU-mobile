@@ -15,23 +15,22 @@ import kr.co.bootpay.*
 import kr.co.bootpay.enums.Method
 import kr.co.bootpay.enums.PG
 
-class PayActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener
-{
+class PayActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
 
-    private var firebasedb : FirebaseDatabase = FirebaseDatabase.getInstance()
-    private var ref : DatabaseReference = firebasedb.reference
-    var tablenumber :Int? = null
+    private var firebasedb: FirebaseDatabase = FirebaseDatabase.getInstance()
+    private var ref: DatabaseReference = firebasedb.reference
+    var tablenumber: Int? = null
 
-    var menuqtt1 :Int? = 0
-    var menuqtt2 :Int? = 0
-    var menuqtt3 :Int? = 0
-    var menuqtt4 :Int? = 0
-    var menuqtt5 :Int? = 0
-    var totalprice :Int? = 0
+    var menuqtt1: Int? = 0
+    var menuqtt2: Int? = 0
+    var menuqtt3: Int? = 0
+    var menuqtt4: Int? = 0
+    var menuqtt5: Int? = 0
+    var totalprice: Int? = 0
 
     var stuck = 10
-    var re: SwipeRefreshLayout?=null
-    var b: Button?=null
+    var re: SwipeRefreshLayout? = null
+    var b: Button? = null
 
     override fun onRefresh() {
         re!!.setRefreshing(false)
@@ -50,28 +49,28 @@ class PayActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener
             tablenumber = intent.getIntExtra("tableNo", 0)
         }
         if (intent.hasExtra("qttmenu1")) {
-            menuqtt1 = intent.getIntExtra("qttmenu1",0)
+            menuqtt1 = intent.getIntExtra("qttmenu1", 0)
         }
         if (intent.hasExtra("qttmenu2")) {
-            menuqtt2 = intent.getIntExtra("qttmenu2",0)
+            menuqtt2 = intent.getIntExtra("qttmenu2", 0)
         }
         if (intent.hasExtra("qttmenu3")) {
-            menuqtt3 = intent.getIntExtra("qttmenu3",0)
+            menuqtt3 = intent.getIntExtra("qttmenu3", 0)
         }
         if (intent.hasExtra("qttmenu4")) {
-            menuqtt4 = intent.getIntExtra("qttmenu4",0)
+            menuqtt4 = intent.getIntExtra("qttmenu4", 0)
         }
         if (intent.hasExtra("qttmenu5")) {
-            menuqtt5 = intent.getIntExtra("qttmenu5",0)
+            menuqtt5 = intent.getIntExtra("qttmenu5", 0)
         }
         if (intent.hasExtra("total_price")) {
-            totalprice = intent.getIntExtra("total_price",0)
+            totalprice = intent.getIntExtra("total_price", 0)
         }
 
         card_btn.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
 
-                var intent : Intent = Intent(this@PayActivity,Bill::class.java)
+                var intent: Intent = Intent(this@PayActivity, Bill::class.java)
 
                 intent.putExtra("tableNo", tablenumber!!.toInt())
                 intent.putExtra("qttmenu1", menuqtt1)
@@ -86,18 +85,16 @@ class PayActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener
         })
     }
 
-    fun onClick_request( v:View) {
+    fun onClick_request(v: View) {
         //        결제호출
-        var m:Method?=null
-        when(v.getId())
-        {
-            R.id.button1->
-            {
-                m=Method.CARD
+        var m: Method? = null
+        when (v.getId()) {
+            R.id.button1 -> {
+                m = Method.CARD
             }
         }
 
-        if(totalprice != null){
+        if (totalprice != null) {
             Bootpay.init(getFragmentManager())
                 .setApplicationId("5cbc1852b6d49c0a8f7825a2") // 해당 프로젝트(안드로이드)의 application id 값
                 .setPG(PG.INICIS) // 결제할 PG 사
@@ -108,7 +105,15 @@ class PayActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener
                 .setPrice(totalprice!!) // 결제할 금액
                 //.setAccountExpireAt("2018-09-22") // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. 오늘 날짜보다 더 뒤(미래)여야 합니다 )
                 .addItem("돈까스", 1, "ITEM_CODE_MOUSE", 7000) // 주문정보에 담길 상품정보, 통계를 위해 사용
-                .addItem("콜라", 1, "ITEM_CODE_KEYBOARD", 2000, "음식", "디저트", "음료수") // 주문정보에 담길 상품정보, 통계를 위해 사용
+                .addItem(
+                    "콜라",
+                    1,
+                    "ITEM_CODE_KEYBOARD",
+                    2000,
+                    "음식",
+                    "디저트",
+                    "음료수"
+                ) // 주문정보에 담길 상품정보, 통계를 위해 사용
                 .onConfirm(object : ConfirmListener {
                     override fun onConfirm(message: String?) {
                         if (0 < stuck) Bootpay.confirm(message); // 재고가 있을 경우.
@@ -119,7 +124,7 @@ class PayActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener
                 .onDone(object : DoneListener {
                     override fun onDone(message: String?) {
 
-                        Toast.makeText(this@PayActivity,"거래완료",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@PayActivity, "거래완료", Toast.LENGTH_SHORT).show()
                         Log.d("done", message)
                     }
                 })
